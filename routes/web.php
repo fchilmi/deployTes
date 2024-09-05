@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\produkController;
 use App\Http\Controllers\UsersController;
 use App\Models\Category;
 use App\Models\Post;
@@ -59,3 +60,11 @@ Route::get('/user/detail', function () {
 Route::get('/user/profilperusahaan', function () {
     return view('user/profilPerusahaan', ['name' => 'Sandi Rp', 'title' => 'About', 'titles' => 'Halaman About']);
 });
+Route::get('/user/login', function () {
+    return view('user/login', ['name' => 'Sandi Rp', 'title' => 'About', 'titles' => 'Halaman About']);
+});
+Route::get('/user/addproduk', function () {
+    return view('user/addProduk', ['name' => 'Sandi Rp', 'title' => 'Add Produk', 'titles' => 'Halaman Add Produk']);
+});
+
+Route::get('/user/dataproduk', [produkController::class, 'index'])->name('users');
