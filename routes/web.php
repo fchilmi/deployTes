@@ -51,9 +51,9 @@ Route::delete('/users/{id}/destroy', [UsersController::class, 'destroy'])->name(
 Route::get('/users/{id}/edit', [UsersController::class, 'edit'])->name('users.edit');
 Route::put('/users/update/{id}', [UsersController::class, 'update'])->name('users.update');
 
-Route::get('/user/dashboard', function () {
-    return view('user/dashboard', ['name' => 'Sandi Rp', 'title' => 'About', 'titles' => 'Halaman About']);
-});
+// Route::get('/user/dashboard', function () {
+//     return view('user/dashboard', ['name' => 'Sandi Rp', 'title' => 'About', 'titles' => 'Halaman About']);
+// });
 Route::get('/user/detail', function () {
     return view('user/detail', ['name' => 'Sandi Rp', 'title' => 'About', 'titles' => 'Halaman About']);
 });
@@ -68,3 +68,9 @@ Route::get('/user/addproduk', function () {
 });
 
 Route::get('/user/dataproduk', [produkController::class, 'index'])->name('users');
+
+Route::get('/user/dashboard', function () {
+    // $posts = Post::with(['author', 'category'])->latest()->get();
+    // $posts = Post::all();
+    return view('/user/dashboard', ['name' => 'Sandi Rp', 'title' => 'Blog', 'titles' => 'Halaman Blog', 'posts' => Post::filter(request(['search', 'category', 'author']))->latest()->paginate(10)->withQueryString()]);
+});
