@@ -23,7 +23,7 @@ Route::get('/posts', function () {
 
 Route::get('/posts/{post:slug}', function (Post $post) {
 
-    // $post = Post::find($slug); 
+    // $post = Post::find($slug);
     return view('post', ['title' => 'Single Post', 'titles' => 'Halaman Post', 'post' => $post]);
 });
 
@@ -43,6 +43,7 @@ Route::get('/contact', function () {
     return view('contact', ['name' => 'Sandi Rp', 'title' => 'Contact', 'titles' => 'Halaman Contact']);
 });
 
+//USERS FITUR
 
 Route::get('/users', [UsersController::class, 'index'])->name('users');
 Route::get('/users/create', [UsersController::class, 'create'])->name('users.create');
@@ -51,9 +52,6 @@ Route::delete('/users/{id}/destroy', [UsersController::class, 'destroy'])->name(
 Route::get('/users/{id}/edit', [UsersController::class, 'edit'])->name('users.edit');
 Route::put('/users/update/{id}', [UsersController::class, 'update'])->name('users.update');
 
-// Route::get('/user/dashboard', function () {
-//     return view('user/dashboard', ['name' => 'Sandi Rp', 'title' => 'About', 'titles' => 'Halaman About']);
-// });
 Route::get('/user/detail', function () {
     return view('user/detail', ['name' => 'Sandi Rp', 'title' => 'About', 'titles' => 'Halaman About']);
 });
