@@ -1,8 +1,11 @@
 <x-layout>
-    <x-slot:title>Users</x-slot:title>
-    <x-slot:titles>Users</x-slot:titles>
+    <x-slot:title>Admin</x-slot:title>
+    <x-slot:titles>Admin</x-slot:titles>
     <h3 class="text-xl">Data Tabel Users</h3>
 
+    <a href="{{ route('user.create') }}"
+        class="item-right text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
+        ADD</a>
     <table class="my-4 w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -37,8 +40,4 @@
             @endforeach
         </tbody>
     </table>
-    <br>
-    <a href="{{ route('users.create') }}"
-        class=" text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
-        ADD</a>
 </x-layout>

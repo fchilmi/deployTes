@@ -3,32 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $data['users'] = User::all();
         return view('users', $data);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        return view('create');
+        return view('user/create');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         User::create([
@@ -42,17 +33,43 @@ class UsersController extends Controller
         return redirect()->route('users');
     }
 
-    /**
-     * Display the specified resource.
-     */
+    public function login()
+    {
+        return view('user/login');
+    }
+
+    public function auth_login(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'password' => 'required',
+        ], [
+            'name.required' => 'Username Harus Diisi',
+            'password.required' => 'Password Harus Diisi',
+        ]);
+        $get = [
+            'name' => $request->name,
+            'password' => $request->password
+        ];
+
+        if (Auth::attempt($get)) {
+            return redirect()->intended('users');
+        } else {
+            return redirect()->back()->withErrors('Username atau Password Tidak Sesuai')->withInput();
+        }
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('users.login');
+    }
+
     public function show(string $id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $data['cari'] = User::find($id);

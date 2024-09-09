@@ -39,8 +39,6 @@
                         </div>
                         <div class="hidden md:block">
                             <div class="ml-4 flex items-center md:ml-6">
-
-
                                 <!-- Profile dropdown -->
                                 <div class="relative ml-3">
                                     <div>
@@ -150,11 +148,8 @@
 
                         <div class="mb-4 items-end justify-between space-y-4 sm:flex sm:space-y-0 md:mb-8">
                             <div>
-
-                                <h2 class="mt-3 text-xl font-semibold text-gray-900 dark:text-white sm:text-2xl">
-                                </h2>
                             </div>
-                            <div class="flex items-center space-x-4">
+                            <div class="flex items-left space-x-4">
                                 <button data-modal-toggle="filterModal" data-modal-target="filterModal"
                                     type="button"
                                     class="flex w-full items-center justify-center rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700 sm:w-auto">
@@ -174,7 +169,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="py-4 px-4 mx-auto max-w-screen-xl lg:py-8 lg:px-0">
+                        <div class="px-4 mx-auto max-w-screen-xl lg:px-0">
                             <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                                 @forelse($posts as $post)
                                     <div

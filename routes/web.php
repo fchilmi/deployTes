@@ -44,10 +44,14 @@ Route::get('/contact', function () {
 });
 
 //USERS FITUR
+Route::get('/user/login', [UsersController::class, 'login'])->name('users.login')->middleware('guest');
+Route::post('/user/login', [UsersController::class, 'auth_login'])->middleware('guest');
+Route::post('/logout', [UsersController::class, 'logout'])->name('logout')->middleware('auth');
+Route::get('/logout2', [UsersController::class, 'logout'])->name('logout2');
+Route::get('/user/create', [UsersController::class, 'create'])->name('user.create')->middleware('auth');
 
-Route::get('/users', [UsersController::class, 'index'])->name('users');
-Route::get('/users/create', [UsersController::class, 'create'])->name('users.create');
 Route::post('/users', [UsersController::class, 'store'])->name('users.store');
+Route::get('/users', [UsersController::class, 'index'])->name('users');
 Route::delete('/users/{id}/destroy', [UsersController::class, 'destroy'])->name('users.destroy');
 Route::get('/users/{id}/edit', [UsersController::class, 'edit'])->name('users.edit');
 Route::put('/users/update/{id}', [UsersController::class, 'update'])->name('users.update');
@@ -57,9 +61,6 @@ Route::get('/user/detail', function () {
 });
 Route::get('/user/profilperusahaan', function () {
     return view('user/profilPerusahaan', ['name' => 'Sandi Rp', 'title' => 'About', 'titles' => 'Halaman About']);
-});
-Route::get('/user/login', function () {
-    return view('user/login', ['name' => 'Sandi Rp', 'title' => 'About', 'titles' => 'Halaman About']);
 });
 Route::get('/user/addproduk', function () {
     return view('user/addProduk', ['name' => 'Sandi Rp', 'title' => 'Add Produk', 'titles' => 'Halaman Add Produk']);
