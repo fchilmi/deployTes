@@ -33,7 +33,5 @@ class UserSeeder extends Seeder
             'is_admin' => true,
             'remember_token' => Str::random(10)
         ]);
-
-        User::factory(3)->create();
     }
 }

@@ -6,6 +6,8 @@ use App\Models\Post;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Category;
+use App\Models\kontak;
+use App\Models\produk;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -21,10 +23,13 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        $this->call([CategorySeeder::class, UserSeeder::class]);
-        Post::factory(100)->recycle([
-            Category::all(),
-            User::all()
-        ])->create();
+        $this->call([CategorySeeder::class, UserSeeder::class, produkSeeder::class, kontakSeeder::class]);
+        // Post::factory(100)->recycle([
+        //     Category::all(),
+        //     User::all()
+        // ])->create();
+        // produk::factory(10)->recycle([
+        //     Category::all()
+        // ])->create();
     }
 }
