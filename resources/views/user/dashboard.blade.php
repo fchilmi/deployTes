@@ -22,14 +22,12 @@
                     <div class="flex h-16 items-center justify-between">
                         <div class="flex items-center">
                             <div class="flex-shrink-0">
-                                <img class="h-8 w-8"
-                                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                                    alt="Your Company">
+                                <img class="h-8 w-8" src="/img/logoPt.png" alt="Your Company">
                             </div>
                             <div class="hidden md:block">
                                 <div class="ml-10 flex items-baseline space-x-4">
                                     <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                                    {{-- <x-nav-link href='#' :active="request()->is('/')">Nama Perusahaan</x-nav-link> --}}
+                                    <x-nav-link href='/' :active="request()->is('/')">Nama Perusahaan</x-nav-link>
                                     {{-- <x-nav-link href='/posts' :active="request()->is('posts')">Blog</x-nav-link> --}}
                                     <x-nav-link href='/user/dashboard' :active="request()->is('user/dashboard')">Produk</x-nav-link>
                                     <x-nav-link href='/user/profilperusahaan' :active="request()->is('user/profilperusahaan')">Profil
@@ -171,32 +169,31 @@
                         </div>
                         <div class="px-4 mx-auto max-w-screen-xl lg:px-0">
                             <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                                @forelse($posts as $post)
+                                @forelse($produks as $produk)
                                     <div
                                         class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
                                         <div class="h-56 w-full">
                                             <a href="#">
                                                 <img class="mx-auto h-full dark:hidden"
-                                                    src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front.svg"
-                                                    alt="" />
-                                                <img class="mx-auto hidden h-full dark:block"
+                                                    src="/img/{{ $produk->namaGambar }}" alt="" />
+                                                {{-- <img class="mx-auto hidden h-full dark:block"
                                                     src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front-dark.svg"
-                                                    alt="" />
+                                                    alt="" /> --}}
                                             </a>
                                         </div>
                                         <div class="pt-6">
                                             <div class="mb-4 flex items-center justify-between gap-4">
                                             </div>
 
-                                            <a href="#"
+                                            <a href=""
                                                 class="text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white">
-                                                {{ $post->title }}</a>
+                                                {{ $produk->namaProduk }}</a>
 
                                             <div class="my-8 flex items-center justify-between gap-4">
                                                 <p
                                                     class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white">
                                                 </p>
-                                                <a href="/user/detail"
+                                                <a href="/user/detail/{{ $produk->slug }}"
                                                     class="inline-flex items-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                                                     Detail
                                                 </a>
@@ -214,7 +211,7 @@
                                 @endforelse
                             </div>
                         </div>
-                        {{ $posts->links() }}
+                        {{-- {{ $posts->links() }} --}}
                     </div>
                     <!-- Filter modal -->
                     <form action="#" method="get" id="filterModal" tabindex="-1" aria-hidden="true"
@@ -675,8 +672,8 @@
                     </form>
 
                 </section>
-
-                <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+                {{-- 
+                <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" /> --}}
 
             </main>
 

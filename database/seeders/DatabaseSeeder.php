@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        $this->call([CategorySeeder::class, UserSeeder::class, produkSeeder::class, kontakSeeder::class]);
+        $this->call([CategorySeeder::class, UserSeeder::class, produkSeeder::class, kontakSeeder::class, GambarSeeder::class]);
         // Post::factory(100)->recycle([
         //     Category::all(),
         //     User::all()

@@ -22,9 +22,7 @@
                     <div class="flex h-16 items-center justify-between">
                         <div class="flex items-center">
                             <div class="flex-shrink-0">
-                                <img class="h-8 w-8"
-                                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                                    alt="Your Company">
+                                <img class="h-8 w-8" src="/img/logoPt.png" alt="Your Company">
                             </div>
                             <div class="hidden md:block">
                                 <div class="ml-10 flex items-baseline space-x-4">
@@ -148,22 +146,20 @@
                     <div class="max-w-screen-xl px-4 mx-auto 2xl:px-0">
                         <div class="lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-16">
                             <div class="shrink-0 max-w-md lg:max-w-lg mx-auto">
-                                <img class="w-full dark:hidden"
-                                    src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front.svg"
+                                <img class="w-full dark:hidden" src="/img/{{ $produk->namaGambar }}"
                                     alt="" />
-                                <img class="w-full hidden dark:block"
+                                {{-- <img class="w-full hidden dark:block"
                                     src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front-dark.svg"
-                                    alt="" />
+                                    alt="" /> --}}
                             </div>
 
                             <div class="mt-6 sm:mt-8 lg:mt-0">
                                 <h1 class="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white">
-                                    Apple iMac 24" All-In-One Computer, Apple M1, 8GB RAM, 256GB SSD,
-                                    Mac OS, Pink
+                                    {{ $produk->namaProduk }}
                                 </h1>
                                 <div class="mt-4 sm:items-center sm:gap-4 sm:flex">
                                     <p class="text-2xl font-extrabold text-gray-900 sm:text-xl dark:text-white">
-                                        1 hari yang lalu | Min Pembelian >1
+                                        {{ $produk->created_at->diffForHumans() }}</p> | Min Pembelian >1
                                     </p>
 
                                 </div>
@@ -178,9 +174,7 @@
                                 <hr class="my-4 md:my-8 border-gray-200 dark:border-gray-800" />
 
                                 <p class="mb-6 text-gray-500 dark:text-gray-400">
-                                    Studio quality three mic array for crystal clear calls and voice
-                                    recordings. Six-speaker sound system for a remarkably robust and
-                                    high-quality audio experience. Up to 256GB of ultrafast SSD storage.
+                                    {{ $produk->deskripsiProduk }}
                                 </p>
 
                                 <p class="text-gray-500 dark:text-gray-400">

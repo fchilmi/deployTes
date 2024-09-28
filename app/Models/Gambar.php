@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Gambar extends Model
 {
     use HasFactory;
+    protected $fillable = ['namaGambar', 'idProduk'];
 }

@@ -21,6 +21,7 @@ class ProdukFactory extends Factory
             'namaProduk'        => fake()->text(),
             'hargaProduk'       => fake()->numerify(),
             'deskripsiProduk'   => fake()->text(),
+            'gambarProduk'   => fake()->text(),
             'category_id' => Category::Factory()
         ];
     }

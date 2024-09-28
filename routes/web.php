@@ -4,6 +4,7 @@ use App\Http\Controllers\produkController;
 use App\Http\Controllers\UsersController;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\produk;
 use App\Models\User;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
@@ -56,8 +57,8 @@ Route::delete('/users/{id}/destroy', [UsersController::class, 'destroy'])->name(
 Route::get('/users/{id}/edit', [UsersController::class, 'edit'])->name('users.edit');
 Route::put('/users/update/{id}', [UsersController::class, 'update'])->name('users.update');
 
-Route::get('/user/detail', function () {
-    return view('user/detail', ['name' => 'Sandi Rp', 'title' => 'About', 'titles' => 'Halaman About']);
+Route::get('/user/detail/{produk:slug}', function (Produk $produk) {
+    return view('user/detail', ['name' => 'Sandi Rp', 'title' => 'About', 'titles' => 'Halaman About', 'produk' => $produk]);
 });
 Route::get('/user/profilperusahaan', function () {
     return view('user/profilPerusahaan', ['name' => 'Sandi Rp', 'title' => 'About', 'titles' => 'Halaman About']);
@@ -71,5 +72,6 @@ Route::get('/user/dataproduk', [produkController::class, 'index'])->name('users'
 Route::get('/user/dashboard', function () {
     // $posts = Post::with(['author', 'category'])->latest()->get();
     // $posts = Post::all();
-    return view('/user/dashboard', ['name' => 'Sandi Rp', 'title' => 'Blog', 'titles' => 'Halaman Blog', 'posts' => Post::filter(request(['search', 'category', 'author']))->latest()->paginate(10)->withQueryString()]);
+    // return view('/user/dashboard', ['name' => 'Sandi Rp', 'title' => 'Blog', 'titles' => 'Halaman Blog', 'posts' => Post::filter(request(['search', 'category', 'author']))->latest()->paginate(10)->withQueryString()]);
+    return view('/user/dashboard', ['name' => 'Sandi Rp', 'title' => 'Produks', 'titles' => 'Halaman Produk', 'produks' => produk::all()]);
 });

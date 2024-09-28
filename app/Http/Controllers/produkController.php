@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\produk;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,7 @@ class produkController extends Controller
 
     public function index()
     {
-        $data['users'] = User::all();
+        $data['produks'] = produk::all();
         return view('user/dataProduk', $data);
     }
 }

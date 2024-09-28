@@ -1,0 +1,7 @@
+relasi tabel gambar dan produk
+fungsi CRUD produk
+paragraf pada detail perlu diperbaiki 
+route users create belum bener
+tampilan edit user perlu diganti modal aja 
+desain tampilan data produk
+
