@@ -46,7 +46,8 @@ Route::get('/contact', function () {
 
 //USERS FITUR
 Route::get('/user/login', [UsersController::class, 'login'])->name('users.login')->middleware('guest');
-Route::post('/user/login', [UsersController::class, 'auth_login'])->middleware('guest');
+Route::get('/login', [UsersController::class, 'login'])->name('login')->middleware('guest');
+Route::post('/login', [UsersController::class, 'auth_login'])->middleware('guest');
 Route::post('/logout', [UsersController::class, 'logout'])->name('logout')->middleware('auth');
 Route::get('/logout2', [UsersController::class, 'logout'])->name('logout2');
 Route::get('/user/create', [UsersController::class, 'create'])->name('user.create')->middleware('auth');
