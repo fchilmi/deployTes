@@ -17,10 +17,13 @@
                                         No
                                     </th>
                                     <th scope="col" class="px-6 py-3">
-                                        Name
+                                        Nama Produk
                                     </th>
                                     <th scope="col" class="px-6 py-3">
-                                        Email
+                                        Harga
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Deskripsi
                                     </th>
                                     <th scope="col" class="px-6 py-3">
                                         Proses
@@ -31,11 +34,12 @@
                                 @foreach ($produks as $data)
                                     <tr class="border-b dark:border-gray-700">
                                         <th scope="row"
-                                            class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            class="px-6 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                             {{ $loop->iteration }}</th>
-                                        <td class="px-4 py-3">{{ $data->namaProduk }}</td>
-                                        <td class="px-4 py-3">{{ $data->hargaProduk }}</td>
-                                        <td class="px-4 py-3">
+                                        <td class="px-6 py-3">{{ $data->namaProduk }}</td>
+                                        <td class="px-6 py-3">{{ $data->hargaProduk }}</td>
+                                        <td class="px-6 py-3 max-w-5">{{ $data->deskripsiProduk }}</td>
+                                        <td class="px-2 py-3">
                                             <form action="{{ route('users.destroy', $data->id) }}" method="POST">
                                                 @csrf
                                                 @method('delete')
@@ -139,7 +143,7 @@
                                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Deskripsi</label>
                                             <textarea id="description" rows="4"
                                                 class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                                placeholder="Write product description here"></textarea>
+                                                placeholder="tulis produk deskripsi disini"></textarea>
                                         </div>
 
                                     </div>
