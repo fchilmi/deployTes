@@ -69,11 +69,12 @@ Route::get('/user/detail/{produk:slug}', function (Produk $produk) {
 Route::get('/user/profilperusahaan', function () {
     return view('user/profilPerusahaan', ['name' => 'Sandi Rp', 'title' => 'About', 'titles' => 'Halaman About']);
 });
-Route::get('/user/addproduk', function () {
-    return view('user/addProduk', ['name' => 'Sandi Rp', 'title' => 'Add Produk', 'titles' => 'Halaman Add Produk']);
-});
+// Route::get('/user/addproduk', function () {
+//     return view('user/addProduk', ['name' => 'Sandi Rp', 'title' => 'Add Produk', 'titles' => 'Halaman Add Produk']);
+// });
 
 Route::get('/user/dataproduk', [produkController::class, 'index'])->name('users');
+Route::post('/addProduk', [produkController::class, 'addProduks'])->name('produkAdd');
 
 Route::get('/user/dashboard', function () {
     // $posts = Post::with(['author', 'category'])->latest()->get();
