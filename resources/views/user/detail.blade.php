@@ -63,11 +63,14 @@
 
                             </div>
                             <div class="mt-6 sm:gap-4 sm:items-center sm:flex sm:mt-8">
-                                <a href="#" title=""
-                                    class="text-white mt-4 sm:mt-0 bg-green-500 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800 flex items-center justify-center"
-                                    role="button">
-                                    Chat Whatsapp
-                                </a>
+                                @foreach ($kontaks as $nomer)
+                                    <a href="https://api.whatsapp.com/send?phone={{ $nomer->nomor }}&text=Hello%2C%20Kami%20Dapat%20No%20Anda%20Dari%20{{ $produk->namaProduk }}"
+                                        title=""
+                                        class="text-white mt-4 sm:mt-0 bg-green-500 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800 flex items-center justify-center"
+                                        role="button">
+                                        {{ Str::of($nomer->nama)->words(2) }}
+                                    </a>
+                                @endforeach
                             </div>
 
                             <hr class="my-4 md:my-8 border-gray-200 dark:border-gray-800" />

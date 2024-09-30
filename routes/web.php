@@ -64,7 +64,7 @@ Route::put('/users/update/{id}', [UsersController::class, 'update'])->name('user
 Route::get('/users', [UsersController::class, 'index'])->name('users');
 
 Route::get('/user/detail/{produk:slug}', function (Produk $produk) {
-    return view('user/detail', ['name' => 'Sandi Rp', 'title' => 'About', 'titles' => 'Halaman About', 'produk' => $produk]);
+    return view('user/detail', ['name' => 'Sandi Rp', 'title' => 'About', 'titles' => 'Halaman About', 'kontaks' => kontak::all(), 'produk' => $produk]);
 });
 Route::get('/user/profilperusahaan', function () {
     return view('user/profilPerusahaan', ['name' => 'Sandi Rp', 'title' => 'About', 'titles' => 'Halaman About']);
