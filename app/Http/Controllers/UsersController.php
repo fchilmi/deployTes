@@ -62,7 +62,7 @@ class UsersController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('users.login');
+        return redirect()->route('login');
     }
 
     public function show(string $id)
