@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\kontaksController;
 use App\Http\Controllers\produkController;
 use App\Http\Controllers\UsersController;
 use App\Models\Category;
@@ -84,4 +85,6 @@ Route::get('/user/dashboard', function () {
 });
 Route::get('/user/kontak', function () {
     return view('user/kontak', ['name' => 'Sandi Rp', 'title' => 'Kontak', 'titles' => 'Halaman Kontak', 'kontaks' => kontak::all(), 'profilP' => profil::all()]);
-});
+})->name('user/kontak');
+Route::put('/user/kontakUpdateP/{id}', [kontaksController::class, 'updateProfil'])->name('kontaks.updateP');
+Route::put('/user/kontakUpdateKontak/{id}', [kontaksController::class, 'updateKontak'])->name('kontaks.updateKontak');
