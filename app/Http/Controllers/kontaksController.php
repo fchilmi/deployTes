@@ -20,6 +20,23 @@ class kontaksController extends Controller
 
         return redirect()->route('user/kontak');
     }
+    public function updateGambar(Request $request, string $id)
+    {
+        $gambar = profil::find($id);
+        if ($request->files1 && $request->files2 && $request->files3 != null) {
+            $gambar->update([
+                'GambarPerusahaan1' => $request->files1->getClientOriginalName(),
+                'GambarPerusahaan2' => $request->files2->getClientOriginalName(),
+                'GambarPerusahaan3' => $request->files3->getClientOriginalName()
+            ]);
+            $request->file('files1')->move(public_path('uploads'), $request->files1->getClientOriginalName());
+            $request->file('files2')->move(public_path('uploads'), $request->files2->getClientOriginalName());
+            $request->file('files3')->move(public_path('uploads'), $request->files3->getClientOriginalName());
+        }
+        dd('BISA');
+
+        return redirect()->route('user/kontak');
+    }
     public function updateKontak(Request $request, string $id)
     {
         // $coba = [

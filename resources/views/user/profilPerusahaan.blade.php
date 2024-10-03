@@ -1,6 +1,6 @@
 <x-layout>
-    <x-slot:title>Profil Perusahaan</x-slot:title>
     <x-slot:titles>Profil Perusahaan</x-slot:titles>
+
     <main>
         <section class="bg-white py-8 antialiased dark:bg-gray-900 md:py-16">
             <div class="mx-auto max-w-screen-xl px-4 2xl:px-0">

@@ -20,17 +20,33 @@
 
     <div class="min-h-full">
         <x-navbar></x-navbar>
-
-        <x-header>{{ $title }}</x-header>
+        @if (request()->routeIs('profilPerusahaan'))
+        <header class="bg-white shadow">
+            <div class="flex h-16 items-center justify-between mx-auto max-w-7xl px-4 py-2 mt-16 sm:px-6 lg:px-8">
+                <div class="flex items-center">
+                    <div class="flex items-baseline">
+                        <h1 class="text-3xl font-bold tracking-tight text-gray-900">Profil Perusahaan</h1>
+                    </div>
+                </div>
+                <div class="flex item-center">
+                <div class="ml-4 flex items-center">
+                    <a href="{{ route('editProfil') }}" type="button" class="text-white bg-blue-800 hover:text-gray-700 border border-blue-700 hover:bg-blue-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Edit Profil</a>
+                </div>
+                </div>
+            </div>
+        </header>
+        @else
+        <x-header>{{ $title }}</x-header> @endif
 
         <main>
-            <div class="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
-                {{ $slot }}
-            </div>
-        </main>
-        <x-footer></x-footer>
+            <div class="mx-auto
+        max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
+    {{ $slot }}
+    </div>
+    </main>
+    <x-footer></x-footer>
     </div>
 
-</body>
+    </body>
 
 </html>

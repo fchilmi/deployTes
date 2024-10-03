@@ -51,6 +51,7 @@ Route::get('/contact', function () {
 Route::get('/user/login', [UsersController::class, 'login'])->name('users.login')->middleware('guest');
 Route::get('/login', [UsersController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/login', [UsersController::class, 'auth_login'])->middleware('guest');
+Route::post('/user/login', [UsersController::class, 'auth_login'])->middleware('guest');
 Route::post('/logout', [UsersController::class, 'logout'])->name('logout')->middleware('auth');
 Route::get('/logout2', [UsersController::class, 'logout'])->name('logout2');
 //Add
@@ -64,29 +65,38 @@ Route::put('/users/update/{id}', [UsersController::class, 'update'])->name('user
 //all
 Route::get('/users', [UsersController::class, 'index'])->name('users');
 
-Route::get('/user/detail/{produk:slug}', function (Produk $produk) {
-    return view('user/detail', ['name' => 'Sandi Rp', 'title' => 'About', 'titles' => 'Halaman About', 'kontaks' => kontak::all(), 'produk' => $produk]);
-});
-Route::get('/user/profilperusahaan', function () {
-    return view('user/profilPerusahaan', ['name' => 'Sandi Rp', 'title' => 'About', 'titles' => 'Halaman About']);
-});
-// Route::get('/user/addproduk', function () {
-//     return view('user/addProduk', ['name' => 'Sandi Rp', 'title' => 'Add Produk', 'titles' => 'Halaman Add Produk']);
-// });
-
-Route::get('/user/dataproduk', [produkController::class, 'index'])->name('users');
-Route::post('/addProduk', [produkController::class, 'addProduks'])->name('produkAdd');
-Route::put('/updateProduk{id}', [produkController::class, 'updateProduks'])->name('produkUpdate');
-Route::delete('/produk/{id}/destroy', [produkController::class, 'destroy'])->name('produkDestroy');
-
+//Produk guest
 Route::get('/user/dashboard', function () {
     // $posts = Post::with(['author', 'category'])->latest()->get();
     // $posts = Post::all();
     // return view('/user/dashboard', ['name' => 'Sandi Rp', 'title' => 'Blog', 'titles' => 'Halaman Blog', 'posts' => Post::filter(request(['search', 'category', 'author']))->latest()->paginate(10)->withQueryString()]);
     return view('/user/dashboard', ['name' => 'Sandi Rp', 'title' => 'Produks', 'titles' => 'Halaman Produk', 'produks' => produk::all()]);
 });
+Route::get('/user/detail/{produk:slug}', function (Produk $produk) {
+    return view('user/detail', ['name' => 'Sandi Rp', 'title' => 'About', 'titles' => 'Halaman About', 'kontaks' => kontak::all(), 'produk' => $produk]);
+});
+
+//Page Produk
+Route::get('/user/dataproduk', [produkController::class, 'index'])->name('users');
+Route::post('/addProduk', [produkController::class, 'addProduks'])->name('produkAdd');
+Route::put('/updateProduk{id}', [produkController::class, 'updateProduks'])->name('produkUpdate');
+Route::delete('/produk/{id}/destroy', [produkController::class, 'destroy'])->name('produkDestroy');
+
+//Page Profil
+Route::get('/user/profilperusahaan', function () {
+    return view('user/profilPerusahaan', ['name' => 'Sandi Rp', 'title' => 'About', 'titles' => 'Halaman About']);
+})->name('profilPerusahaan');
+Route::get('/profil/edit', function () {
+    return view('user/editProfil', ['name' => 'Sandi Rp', 'title' => 'Edit Profil', 'titles' => 'Halaman Edit Profil', 'profil' => profil::first()]);
+})->name('editProfil')->middleware('auth');
+// Route::get('/user/addproduk', function () {
+//     return view('user/addProduk', ['name' => 'Sandi Rp', 'title' => 'Add Produk', 'titles' => 'Halaman Add Produk']);
+// });
+Route::put('/user/updateProfil/{id}', [kontaksController::class, 'updateProfil'])->name('updateProfil');
+Route::put('/user/updateGambar/{id}', [kontaksController::class, 'updateGambar'])->name('updateGambar');
+
+//Page kontak
 Route::get('/user/kontak', function () {
     return view('user/kontak', ['name' => 'Sandi Rp', 'title' => 'Kontak', 'titles' => 'Halaman Kontak', 'kontaks' => kontak::all(), 'profilP' => profil::all()]);
 })->name('user/kontak');
-Route::put('/user/kontakUpdateP/{id}', [kontaksController::class, 'updateProfil'])->name('kontaks.updateP');
-Route::put('/user/kontakUpdateKontak/{id}', [kontaksController::class, 'updateKontak'])->name('kontaks.updateKontak');
+Route::put('/user/updateKontak/{id}', [kontaksController::class, 'updateKontak'])->name('updateKontak');
