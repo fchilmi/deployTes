@@ -76,6 +76,8 @@ Route::get('/user/profilperusahaan', function () {
 
 Route::get('/user/dataproduk', [produkController::class, 'index'])->name('users');
 Route::post('/addProduk', [produkController::class, 'addProduks'])->name('produkAdd');
+Route::put('/updateProduk{id}', [produkController::class, 'updateProduks'])->name('produkUpdate');
+Route::delete('/produk/{id}/destroy', [produkController::class, 'destroy'])->name('produkDestroy');
 
 Route::get('/user/dashboard', function () {
     // $posts = Post::with(['author', 'category'])->latest()->get();

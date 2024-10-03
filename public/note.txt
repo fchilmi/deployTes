@@ -1,7 +1,8 @@
 relasi tabel gambar dan produk      v
-fungsi CRUD produk              -ud
+fungsi CRUD produk              v
 paragraf pada detail perlu diperbaiki
 route users create belum bener
-tampilan edit user perlu diganti modal aja
+tampilan edit user perlu diganti modal aja  v
 desain tampilan data produk
-
+sweet alert semua
+desain profil peruhsaan

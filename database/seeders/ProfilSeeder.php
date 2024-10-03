@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\profil;
 
 class profilSeeder extends Seeder
 {
@@ -12,6 +13,11 @@ class profilSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        profil::create([
+            'namaPerusahaan' => 'Filter LOOOHH',
+            'alamatToko'    => 'Margomulyo Indah',
+            'alamatGudang'  => 'Margomulyo Gudang e',
+            'deskripsiPerusahaan' => 'Ini Perusahaan Filter LOOOHH'
+        ]);
     }
 }

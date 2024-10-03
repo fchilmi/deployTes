@@ -159,32 +159,32 @@
                     </div>
                     <div class="w-full mb-4 px-2">
                         <div
-                            class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded   bg-black text-white">
-                            <div class="rounded-t mb-0 px-4 py-3 border-0">
+                            class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-gray-600">
+                            <div class="rounded-t mb-0 px-4 py-3 border-b-2 border-b-gray-300">
                                 <div class="flex flex-wrap items-center">
                                     <div class="relative w-full px-2 max-w-full flex-grow flex-1 ">
-                                        <h3 class="font-semibold text-lg text-white">Tabel Kontak</h3>
+                                        <h3 class="font-semibold text-lg text-gray-950">Tabel Kontak</h3>
                                     </div>
                                 </div>
                             </div>
                             <div class="block w-full overflow-x-auto ">
                                 <table class="w-full text-sm text-left rtl:text-right text-white dark:text-gray-400">
                                     <thead
-                                        class="text-xs text-white uppercase bg-black dark:bg-gray-700 dark:text-gray-400 border-gray-400">
+                                        class="text-xs text-gray-900 uppercase bg-gray-500 dark:bg-gray-700 dark:text-gray-400 border-b-2 border-b-gray-300">
                                         <tr>
-                                            <th scope="col" class="px-6 py-3  text-white">
+                                            <th scope="col" class="px-6 py-3">
                                                 No
                                             </th>
-                                            <th scope="col" class="px-6 py-3  text-white">
+                                            <th scope="col" class="px-6 py-3">
                                                 Nama
                                             </th>
-                                            <th scope="col" class="px-6 py-3  text-white">
+                                            <th scope="col" class="px-6 py-3">
                                                 Nomer telp
                                             </th>
-                                            <th scope="col" class="px-6 py-3  text-white">
+                                            <th scope="col" class="px-6 py-3">
                                                 Email
                                             </th>
-                                            <th scope="col" class="px-6 py-3  text-white">
+                                            <th scope="col" class="px-6 py-3">
                                                 Proses
                                             </th>
                                         </tr>
@@ -211,8 +211,8 @@
                                             <!-- Main modal edit kontak -->
                                             <div id="updateKontakModal{{ $data->id }}" tabindex="-1"
                                                 aria-hidden="true"
-                                                class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-modal md:h-full">
-                                                <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
+                                                class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                                                <div class="relative p-4 w-full max-w-md max-h-full">
                                                     <!-- Modal content -->
                                                     <div
                                                         class="relative p-4 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
@@ -221,7 +221,7 @@
                                                             class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
                                                             <h3
                                                                 class="text-lg font-semibold text-gray-900 dark:text-white">
-                                                                Update Product
+                                                                Update Kontak
                                                             </h3>
                                                             <button type="button"
                                                                 class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
@@ -241,7 +241,7 @@
                                                             method="POST">
                                                             @csrf
                                                             @method('PUT')
-                                                            <div class="grid gap-4 mb-4 sm:grid-cols-2">
+                                                            <div class="grid gap-4 mb-4">
                                                                 <div>
                                                                     <label for="nama"
                                                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama</label>

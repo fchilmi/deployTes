@@ -22,7 +22,11 @@ class produkController extends Controller
 
     public function index()
     {
-        $data['produks'] = produk::all();
+        $data = [
+            'produks' => produk::all(),
+            // 'gambars' => Gambar::all()
+        ];
+        // dd($data);
         return view('user/dataProduk', $data);
     }
 
@@ -58,5 +62,38 @@ class produkController extends Controller
         }
         // dd("yes");
         return redirect()->route('users')->with('success', 'Produk berhasil ditambahkan');
+    }
+
+    public function updateProduks(Request $request, string $id)
+    {
+        $produk = produk::find($id);
+        // dd($produk);
+        $data = [
+            'namaProduk' => $request->produkName,
+            'slug' => Str::slug($request->produkName),
+            'hargaProduk' => $request->produkPrice,
+            'category_id' => $request->produkKategori,
+            'deskripsiProduk' => $request->produkDeskripsi
+        ];
+
+        // if ($request->file('produkImg')) {
+        //     $produk->namaGambar = $request->file('produkImg')->getClientOriginalName();
+        //     $request->file('produkImg')->move(public_path('uploads'), $produk->namaGambar);
+        // }
+        $produk->update($data);
+
+        return redirect()->route('users')->with('success', 'Produk berhasil diupdate');
+    }
+    public function destroy($id)
+    {
+        $gambar = Gambar::all();
+        $produk = produk::find($id);
+        foreach ($gambar as $g) {
+            if ($g->idProduk == $id) {
+                $g->delete();
+            }
+        }
+        $produk->delete();
+        return redirect()->route('users')->with('success', 'Produk berhasil dihapus');
     }
 }
