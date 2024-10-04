@@ -22,12 +22,28 @@ class produkController extends Controller
 
     public function index()
     {
+
+        // $produkTambahan = produk::inRandomOrder()->limit('3')->get();
+        // dd($produkTambahan);
         $data = [
             'produks' => produk::all(),
             // 'gambars' => Gambar::all()
         ];
         // dd($data);
         return view('user/dataProduk', $data);
+    }
+
+    public function edit(string $id)
+    {
+        // $data['hasilProduk'] = produk::find($id);
+        // $hasilGambar = Gambar::where('idProduk', $id)->get();
+        // dd($hasilGambar);
+
+        $data = [
+            'hasilProduk' => produk::find($id),
+            'hasilGambar' => Gambar::where('idProduk', $id)->get()
+        ];
+        return view('/user/editProduk', $data);
     }
 
     public function addProduks(Request $request)

@@ -73,7 +73,7 @@ Route::get('/user/dashboard', function () {
     return view('/user/dashboard', ['name' => 'Sandi Rp', 'title' => 'Produks', 'titles' => 'Halaman Produk', 'produks' => produk::all()]);
 });
 Route::get('/user/detail/{produk:slug}', function (Produk $produk) {
-    return view('user/detail', ['name' => 'Sandi Rp', 'title' => 'About', 'titles' => 'Halaman About', 'kontaks' => kontak::all(), 'produk' => $produk]);
+    return view('user/detail', ['name' => 'Sandi Rp', 'title' => 'About', 'titles' => 'Halaman About', 'kontaks' => kontak::all(), 'produk' => $produk, 'produkKategori' => produk::inRandomOrder()->limit('4')->get()]);
 });
 
 //Page Produk
@@ -81,6 +81,7 @@ Route::get('/user/dataproduk', [produkController::class, 'index'])->name('users'
 Route::post('/addProduk', [produkController::class, 'addProduks'])->name('produkAdd');
 Route::put('/updateProduk{id}', [produkController::class, 'updateProduks'])->name('produkUpdate');
 Route::delete('/produk/{id}/destroy', [produkController::class, 'destroy'])->name('produkDestroy');
+Route::get('/produk/{id}/edit', [produkController::class, 'edit'])->name('produksEdit');
 
 //Page Profil
 Route::get('/user/profilperusahaan', function () {

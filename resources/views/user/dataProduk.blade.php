@@ -142,9 +142,13 @@
                                             <form action="{{ route('produkDestroy', $data->id) }}" method="POST">
                                                 @csrf
                                                 @method('delete')
-                                                <a type="button" id="updateProduk"
+                                                {{-- <a type="button" id="updateProduk"
                                                     data-modal-target="updateProdukModal{{ $data->id }}"
                                                     data-modal-toggle="updateProdukModal{{ $data->id }}"
+                                                    class="text-white  bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                                                    Edit
+                                                </a> --}}
+                                                <a href="{{ route('produksEdit', $data->id) }}" type="button"
                                                     class="text-white  bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                                                     Edit
                                                 </a>
@@ -248,14 +252,6 @@
                             </tbody>
                         </table>
                     </div>
-                    <br>
-                    {{-- <div class="flex justify-center m-5">
-                        <a href="/user/addproduk"
-                            class="block text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-                            type="button">
-                            Tambah product 1
-                        </a>
-                    </div> --}}
                 </div>
             </main>
         </div>

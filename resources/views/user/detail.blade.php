@@ -85,6 +85,55 @@
                     </div>
                 </div>
             </section>
+            <div class="grid grid-cols-4 gap-4 mt-20">
+                @foreach ($produkKategori as $pk)
+                    <div
+                        class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+                        <div class="h-56 w-full">
+                            <a href="#">
+                                <img class="mx-auto h-full dark:hidden" src="/uploads/{{ $pk->namaGambar }}"
+                                    alt="" />
+                                {{-- <img class="mx-auto hidden h-full dark:block"
+                                        src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front-dark.svg"
+                                        alt="" /> --}}
+                            </a>
+                        </div>
+                        <div class="pt-6">
+                            <div class="mb-4 flex items-center justify-between gap-4">
+                            </div>
+
+                            <a href=""
+                                class="text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white">
+                                {{ $pk->namaProduk }}</a>
+
+                            <div class="my-8 flex items-center justify-between gap-4">
+                                <p class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white">
+                                </p>
+                                <a href="/user/detail/{{ $pk->slug }}"
+                                    class="inline-flex items-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                                    Detail
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+                {{-- <div>
+                    <img class="h-auto max-w-full rounded-lg"
+                        src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="">
+                </div>
+                <div>
+                    <img class="h-auto max-w-full rounded-lg"
+                        src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="">
+                </div>
+                <div>
+                    <img class="h-auto max-w-full rounded-lg"
+                        src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt="">
+                </div>
+                <div>
+                    <img class="h-auto max-w-full rounded-lg"
+                        src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg" alt="">
+                </div> --}}
+            </div>
         </main>
     </div>
 </x-layout>
