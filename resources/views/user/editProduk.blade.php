@@ -7,7 +7,7 @@
                 <form action="{{ route('produkUpdate', $hasilProduk->id) }}" method="POST">
                     @csrf
                     @method('PUT')
-                    <div class="grid gap-4 mb-4 sm:grid-cols-2">
+                    <div class="grid gap-4 mb-4 lg:grid-cols-2">
                         <div class="sm:col-span-2">
                             <label for="name"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama
@@ -41,33 +41,40 @@
                         @foreach ($hasilGambar as $hg)
                             <div>
                                 <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                                    for="multiple_files">Gambar</label>
-                                <img src="/uploads/{{ $hg->namaGambar }}" alt="" width="50%" height="30%">
-                            </div>
-                            <div class="mt-20">
-                                <input
-                                    class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                                    id="files" type="file" name="namaGambar">
+                                    for="">{{ $hg->namaGambar }}</label>
+                                <img src="/uploads/{{ $hg->namaGambar }}" alt="" width="30%"
+                                    class="border-2 border-gray-600">
                             </div>
                         @endforeach
-                        <div class="sm:col-span-2">
-                            <label for="description"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Deskripsi</label>
-                            <textarea id="description" name="produkDeskripsi" rows="4"
-                                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="tulis produk deskripsi disini">{{ $hasilProduk->deskripsiProduk }}</textarea>
-                        </div>
+                        @for ($i = 1; $i <= $file; $i++)
+                            @if ($file >= 2)
+                                <div class="mb-20">
+                                @else
+                                    <div class="mt-20">
+                            @endif
+                            <input
+                                class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                                id="files" type="file" name="produkImg{{ $i }}">
+                    </div>
+                    @endfor
+                    <div class="sm:col-span-2">
+                        <label for="description"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Deskripsi</label>
+                        <textarea id="description" name="produkDeskripsi" rows="4"
+                            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                            placeholder="tulis produk deskripsi disini">{{ $hasilProduk->deskripsiProduk }}</textarea>
+                    </div>
 
-                    </div>
-                    <div class="flex items-center space-x-4">
-                        <button type="submit"
-                            class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-                            Update Produk
-                        </button>
-                    </div>
-                </form>
             </div>
-            {{-- <div class="py-8 px-4 h-auto max-w-full lg:py-1 rounded-lg bg-gray-600">
+            <div class="flex items-center space-x-4">
+                <button type="submit"
+                    class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                    Update Produk
+                </button>
+            </div>
+            </form>
+        </div>
+        {{-- <div class="py-8 px-4 h-auto max-w-full lg:py-1 rounded-lg bg-gray-600">
                 <form action="{{ route('updateGambar', $produk->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')

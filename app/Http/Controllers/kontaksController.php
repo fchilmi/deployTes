@@ -37,23 +37,23 @@ class kontaksController extends Controller
 
         return redirect()->route('user/kontak');
     }
+    public function addKontak(Request $request)
+    {
+        kontak::create([
+            'nama' => $request->nama,
+            'nomor' => $request->nomor,
+            'email' => $request->email,
+        ]);
+        return redirect()->route('user/kontak');
+    }
     public function updateKontak(Request $request, string $id)
     {
-        // $coba = [
-        //     'nama' => $request->nama,
-        //     'nomor' => $request->nomor,
-        //     'email' => $request->email,
-        // ];
-        // dd($coba);
-
-
         $data = kontak::find($id);
         $data->update([
             'nama' => $request->nama,
             'nomor' => $request->nomor,
             'email' => $request->email,
         ]);
-
         return redirect()->route('user/kontak');
     }
 }

@@ -15,7 +15,8 @@
                     </div>
 
                     <div class="mx-auto mb-6 max-w-3xl space-y-6 md:mb-12">
-                        <p class="text-base font-normal text-gray-500 dark:text-gray-400">Connectivity includes
+                        <p class="text-base font-normal text-gray-500 dark:text-gray-400 text-justify">Connectivity
+                            includes
                             two
                             Thunderbolt / USB 4 ports and two USB 3 ports (all with a USB-C connector), a 3.5 mm
                             headphone
@@ -33,7 +34,8 @@
                             delectus hic
                             pariatur nesciunt necessitatibus ut veniam quam quis magnam!</p>
 
-                        <p class="text-base font-normal text-gray-500 dark:text-gray-400">A-Grade/CR: iMacs are
+                        <p class="text-base font-normal text-gray-500 dark:text-gray-400 text-justify">A-Grade/CR: iMacs
+                            are
                             in 9/10
                             Cosmetic Condition and are 100% Fully Functional. iMacs will be shipped in generic
                             packaging and
@@ -51,11 +53,8 @@
                             autem quos
                             quaerat! Dolorem?</p>
                     </div>
-
                 </div>
             </div>
         </section>
-        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-
     </main>
 </x-layout>

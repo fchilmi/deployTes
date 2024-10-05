@@ -88,9 +88,6 @@
                                 <a href="#">
                                     <img class="mx-auto h-full dark:hidden" src="/uploads/{{ $produk->namaGambar }}"
                                         alt="" />
-                                    {{-- <img class="mx-auto hidden h-full dark:block"
-                                                    src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front-dark.svg"
-                                                    alt="" /> --}}
                                 </a>
                             </div>
                             <div class="pt-6">

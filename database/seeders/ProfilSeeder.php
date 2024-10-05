@@ -17,7 +17,11 @@ class profilSeeder extends Seeder
             'namaPerusahaan' => 'Filter LOOOHH',
             'alamatToko'    => 'Margomulyo Indah',
             'alamatGudang'  => 'Margomulyo Gudang e',
-            'deskripsiPerusahaan' => 'Ini Perusahaan Filter LOOOHH'
+            'deskripsiPerusahaan' => 'Ini Perusahaan Filter LOOOHH',
+            'logoPerusahaan' => 'logoPt.png',
+            'gambarPerusahaan1' => null,
+            'gambarPerusahaan2' => null,
+            'gambarPerusahaan3' => null,
         ]);
     }
 }

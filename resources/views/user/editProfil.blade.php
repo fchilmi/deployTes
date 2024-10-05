@@ -10,7 +10,7 @@
                     <div class="grid gap-4 mb-4 sm:grid-cols-2">
                         <div class="sm:col-span-2">
                             <label for="nama_perusahaan"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama
+                                class="block mb-2 text-sm font-medium text-gray-100 dark:text-white">Nama
                                 Perusahaan</label>
                             <input type="text" name="nama_perusahaan" id="nama_perusahaan"
                                 value="{{ $profil->namaPerusahaan }}"
@@ -18,7 +18,7 @@
                         </div>
                         <div>
                             <label for="alamatToko"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Alamat
+                                class="block mb-2 text-sm font-medium text-gray-100 dark:text-white">Alamat
                                 Toko</label>
                             <input type="text" name="alamatToko" id="alamatToko" value="{{ $profil->alamatToko }}"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
@@ -26,7 +26,7 @@
                         </div>
                         <div>
                             <label for="alamatGudang"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Alamat
+                                class="block mb-2 text-sm font-medium text-gray-100 dark:text-white">Alamat
                                 Gudang</label>
                             <input type="text" value="{{ $profil->alamatGudang }}" name="alamatGudang"
                                 id="alamatGudang"
@@ -35,7 +35,7 @@
 
                         <div class="sm:col-span-2">
                             <label for="deskripsi"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Deskripsi</label>
+                                class="block mb-2 text-sm font-medium text-gray-100 dark:text-white">Deskripsi</label>
                             <textarea id="deskripsi" name="deskripsi" rows="8"
                                 class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">{{ $profil->deskripsiPerusahaan }}</textarea>
                         </div>
@@ -54,9 +54,18 @@
                     @method('PUT')
                     <div class="grid gap-4 mb-4 sm:grid-cols-2">
                         <div class="">
-                            <label for="alamatToko"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gambar 1</label>
-                            <img src="/uploads/{{ $profil->GambarPerusahaan1 }}" alt="" width="50%">
+                            <label for="gambarPT1"
+                                class="block mb-2 text-sm font-medium text-gray-200 dark:text-white">Gambar 1</label>
+                            @if ($profil->GambarPerusahaan2 == null)
+                                <svg class="ml-8 w-[70px] h-[70px] text-gray-800 dark:text-white" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                    viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-width="1"
+                                        d="m6 6 12 12m3-6a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                </svg>
+                            @else
+                                <img src="/uploads/{{ $profil->GambarPerusahaan1 }}" alt="gambar2" width="50%">
+                            @endif
                         </div>
                         <div>
                             <input
@@ -64,8 +73,8 @@
                                 id="files1" type="file" name="files1">
                         </div>
                         <div class="">
-                            <label for="alamatToko"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gambar 2</label>
+                            <label for="gambarPT2"
+                                class="block mb-2 text-sm font-medium text-gray-200 dark:text-white">Gambar 2</label>
                             @if ($profil->GambarPerusahaan2 == null)
                                 <svg class="ml-8 w-[70px] h-[70px] text-gray-800 dark:text-white" aria-hidden="true"
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
@@ -83,8 +92,8 @@
                                 id="files2" type="file" name="files2">
                         </div>
                         <div class="">
-                            <label for="alamatToko"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gambar 3</label>
+                            <label for="gambarPT3"
+                                class="block mb-2 text-sm font-medium text-gray-200 dark:text-white">Gambar 3</label>
                             @if ($profil->GambarPerusahaan2 == null)
                                 <svg class="ml-8 w-[70px] h-[70px] text-gray-800 dark:text-white" aria-hidden="true"
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"

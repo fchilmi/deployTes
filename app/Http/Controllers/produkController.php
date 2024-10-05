@@ -6,6 +6,7 @@ use App\Models\produk;
 use App\Models\Gambar;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
 class produkController extends Controller
@@ -26,7 +27,7 @@ class produkController extends Controller
         // $produkTambahan = produk::inRandomOrder()->limit('3')->get();
         // dd($produkTambahan);
         $data = [
-            'produks' => produk::all(),
+            'produks' => produk::whereNotNull('id')->latest()->paginate(6),
             // 'gambars' => Gambar::all()
         ];
         // dd($data);
@@ -35,14 +36,12 @@ class produkController extends Controller
 
     public function edit(string $id)
     {
-        // $data['hasilProduk'] = produk::find($id);
-        // $hasilGambar = Gambar::where('idProduk', $id)->get();
-        // dd($hasilGambar);
-
         $data = [
             'hasilProduk' => produk::find($id),
-            'hasilGambar' => Gambar::where('idProduk', $id)->get()
+            'hasilGambar' => Gambar::where('idProduk', $id)->get(),
+            'file'  => count(Gambar::where('idProduk', $id)->get())
         ];
+
         return view('/user/editProduk', $data);
     }
 
@@ -51,13 +50,6 @@ class produkController extends Controller
         $produk = new produk();
         $fileNames = [];
 
-        if ($request->file('produkImg')) {
-            foreach ($request->file('produkImg') as $file) {
-                $fileName = $file->getClientOriginalName();
-                $file->move(public_path('uploads'), $fileName);
-                $fileNames[] = $fileName;
-            }
-        }
         $data = [
             'namaProduk' => $request->produkName,
             'slug' => Str::slug($request->produkName),
@@ -76,14 +68,21 @@ class produkController extends Controller
             $gambar->namaGambar = $fileName;
             $gambar->save();
         }
-        // dd("yes");
+        if ($request->file('produkImg')) {
+            foreach ($request->file('produkImg') as $file) {
+                $fileName = $file->getClientOriginalName();
+                $file->move(public_path('uploads'), $fileName);
+                $fileNames[] = $fileName;
+            }
+        }
         return redirect()->route('users')->with('success', 'Produk berhasil ditambahkan');
     }
 
     public function updateProduks(Request $request, string $id)
     {
         $produk = produk::find($id);
-        // dd($produk);
+        $fileNames = [];
+
         $data = [
             'namaProduk' => $request->produkName,
             'slug' => Str::slug($request->produkName),
@@ -92,9 +91,16 @@ class produkController extends Controller
             'deskripsiProduk' => $request->produkDeskripsi
         ];
 
-        // if ($request->file('produkImg')) {
-        //     $produk->namaGambar = $request->file('produkImg')->getClientOriginalName();
-        //     $request->file('produkImg')->move(public_path('uploads'), $produk->namaGambar);
+        // if ($request->file('produkImg1') && $request->file('produkImg2') && $request->file('produkImg3')) {
+        //     $request->file('produkImg1')->move(public_path('uploads'), $request->file('produkImg1')->getClientOriginalName());
+        //     $request->file('produkImg2')->move(public_path('uploads'), $request->file('produkImg2')->getClientOriginalName());
+        //     $request->file('produkImg3')->move(public_path('uploads'), $request->file('produkImg3')->getClientOriginalName());
+        // }
+        // foreach ($fileNames as $fileName) {
+        //     $gambar = new Gambar();
+        //     $gambar->idProduk = $id;
+        //     $gambar->namaGambar = $fileName;
+        //     $gambar->save();
         // }
         $produk->update($data);
 
@@ -104,8 +110,14 @@ class produkController extends Controller
     {
         $gambar = Gambar::all();
         $produk = produk::find($id);
+        // if ($produk->namaGambar) {
+        // }
         foreach ($gambar as $g) {
             if ($g->idProduk == $id) {
+                $filePath = public_path('uploads') . '/' . $produk->namaGambar;
+                if (File::exists($filePath)) {
+                    File::delete($filePath);
+                }
                 $g->delete();
             }
         }
