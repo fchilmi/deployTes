@@ -60,7 +60,8 @@
             {{-- UPDATE GAMBAR --}}
             <div class="py-8 px-4 h-auto max-w-full lg:py-1 rounded-lg bg-gray-600">
                 <h1 class="text-2xl font-semibold -tracking-tighter text-gray-200 mb-10">Gambar Produk</h1>
-                <form action="#" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('produkUpdateGambar', $hasilProduk->id) }}" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="grid gap-4 mb-4 sm:grid-cols-3">
@@ -101,17 +102,17 @@
                         <div class="flex justify-center items-center">
                             <input
                                 class="block mt-12 w-70 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                                id="files1" type="file" name="files1">
+                                id="files1" type="file" name="produkImg1">
                         </div>
                         <div class="flex justify-center items-center">
                             <input
                                 class="block mt-12 w-70 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                                id="files2" type="file" name="files2">
+                                id="files2" type="file" name="produkImg2">
                         </div>
                         <div class="flex justify-center items-center">
                             <input
                                 class="block mt-12 w-70 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                                id="files3" type="file" name="files3">
+                                id="files3" type="file" name="produkImg3">
                         </div>
                     </div>
                     <div class="flex justify-end mt-12 mr-20">

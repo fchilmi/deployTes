@@ -18,10 +18,6 @@ class GambarSeeder extends Seeder
             'idProduk' => '1',
         ]);
         Gambar::create([
-            'namaGambar' => '6b.png',
-            'idProduk' => '1',
-        ]);
-        Gambar::create([
             'namaGambar' => '2a.png',
             'idProduk' => '2',
         ]);

@@ -28,9 +28,7 @@ class produkController extends Controller
         // dd($produkTambahan);
         $data = [
             'produks' => produk::whereNotNull('id')->latest()->paginate(6),
-            // 'gambars' => Gambar::all()
         ];
-        // dd($data);
         return view('user/dataProduk', $data);
     }
 
@@ -56,7 +54,7 @@ class produkController extends Controller
             'hargaProduk' => $request->produkPrice,
             'category_id' => $request->produkKategori,
             'deskripsiProduk' => $request->produkDeskripsi,
-            'namaGambar' => $request->file('produkImg')[0]->getClientOriginalName()
+            'namaGambar' => Str::random(10) . $request->file('produkImg')[0]->getClientOriginalName()
         ];
         produk::create($data);
         $produkId = $produk->latest()->first()->id;
@@ -70,7 +68,7 @@ class produkController extends Controller
         }
         if ($request->file('produkImg')) {
             foreach ($request->file('produkImg') as $file) {
-                $fileName = $file->getClientOriginalName();
+                $fileName = Str::random(10) . $file->getClientOriginalName();
                 $file->move(public_path('uploads'), $fileName);
                 $fileNames[] = $fileName;
             }
@@ -78,10 +76,12 @@ class produkController extends Controller
         return redirect()->route('users')->with('success', 'Produk berhasil ditambahkan');
     }
 
-    public function updateProduks(Request $request, string $id)
+    public function updateProduk(Request $request, string $id)
     {
         $produk = produk::find($id);
-        $fileNames = [];
+        // $gambar = Gambar::select('namaGambar')->where('idProduk', $id)->get();
+        // $fileNames = [];
+        // $coba = $request->coba;
 
         $data = [
             'namaProduk' => $request->produkName,
@@ -91,18 +91,86 @@ class produkController extends Controller
             'deskripsiProduk' => $request->produkDeskripsi
         ];
 
-        // if ($request->file('produkImg1') && $request->file('produkImg2') && $request->file('produkImg3')) {
-        //     $request->file('produkImg1')->move(public_path('uploads'), $request->file('produkImg1')->getClientOriginalName());
-        //     $request->file('produkImg2')->move(public_path('uploads'), $request->file('produkImg2')->getClientOriginalName());
-        //     $request->file('produkImg3')->move(public_path('uploads'), $request->file('produkImg3')->getClientOriginalName());
-        // }
-        // foreach ($fileNames as $fileName) {
-        //     $gambar = new Gambar();
-        //     $gambar->idProduk = $id;
-        //     $gambar->namaGambar = $fileName;
-        //     $gambar->save();
-        // }
         $produk->update($data);
+        return redirect()->route('users')->with('success', 'Produk berhasil diupdate');
+    }
+    public function updateProdukGambar(Request $request, string $id)
+    {
+        $produk = produk::find($id);
+        $gambarLama = Gambar::where('idProduk', $id)->get();
+        // dd($gambarLama[0]);
+        // Validasi input gambar jika ada
+        $request->validate([
+            'produkImg1' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'produkImg2' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'produkImg3' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+        ]);
+
+        // Proses update gambar
+        if ($request->hasFile('produkImg1')) {
+            // Hapus gambar lama jika ada
+            if (isset($gambarLama[0])) {
+                File::delete('uploads/' . $gambarLama[0]->namaGambar);
+            }
+            // Upload gambar baru
+            $file1 = $request->file('produkImg1');
+            $namaGambar1 = Str::random(10) . $file1->getClientOriginalName();
+            $file1->move(public_path('uploads'), $namaGambar1);
+
+            // Update database
+            if (isset($gambarLama[0])) {
+                $gambarLama[0]->namaGambar = $namaGambar1;
+                $gambarLama[0]->save();
+            } else {
+                Gambar::create(['idProduk' => $id, 'namaGambar' => $namaGambar1]);
+            }
+        }
+
+        if ($request->hasFile('produkImg2')) {
+            // Hapus gambar lama jika ada
+            if (isset($gambarLama[1])) {
+                File::delete('uploads/' . $gambarLama[1]->namaGambar);
+            }
+            // Upload gambar baru
+            $file2 = $request->file('produkImg2');
+            $namaGambar2 = Str::random(10) . $file2->getClientOriginalName();
+            $file2->move(public_path('uploads'), $namaGambar2);
+
+            // Update database
+            if (isset($gambarLama[1])) {
+                $gambarLama[1]->namaGambar = $namaGambar2;
+                $gambarLama[1]->save();
+            } else {
+                Gambar::create(['idProduk' => $id, 'namaGambar' => $namaGambar2]);
+            }
+        }
+
+        if ($request->hasFile('produkImg3')) {
+            // Hapus gambar lama jika ada
+            if (isset($gambarLama[2])) {
+                File::delete('uploads/' . $gambarLama[2]->namaGambar);
+            }
+            // Upload gambar baru
+            $file3 = $request->file('produkImg3');
+            $namaGambar3 = Str::random(10) . $file3->getClientOriginalName();
+            $file3->move(public_path('uploads'), $namaGambar3);
+
+            // Update database
+            if (isset($gambarLama[2])) {
+                $gambarLama[2]->namaGambar = $namaGambar3;
+                $gambarLama[2]->save();
+            } else {
+                Gambar::create(['idProduk' => $id, 'namaGambar' => $namaGambar3]);
+            }
+        }
+
+        // Update informasi produk lainnya
+        if ($request->hasFile('produkImg1')) {
+            $produk->update([
+                'namaGambar' => Str::random(10) . $request->file('produkImg1')->getClientOriginalName(),
+                'updated_at' => now(),
+            ]);
+        }
 
         return redirect()->route('users')->with('success', 'Produk berhasil diupdate');
     }

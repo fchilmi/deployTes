@@ -56,7 +56,7 @@
                         <div class="">
                             <label for="gambarPT1"
                                 class="block mb-2 text-sm font-medium text-gray-200 dark:text-white">Gambar 1</label>
-                            @if ($profil->GambarPerusahaan2 == null)
+                            @if ($profil->GambarPerusahaan1 == null)
                                 <svg class="ml-8 w-[70px] h-[70px] text-gray-800 dark:text-white" aria-hidden="true"
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                                     viewBox="0 0 24 24">
@@ -94,7 +94,7 @@
                         <div class="">
                             <label for="gambarPT3"
                                 class="block mb-2 text-sm font-medium text-gray-200 dark:text-white">Gambar 3</label>
-                            @if ($profil->GambarPerusahaan2 == null)
+                            @if ($profil->GambarPerusahaan3 == null)
                                 <svg class="ml-8 w-[70px] h-[70px] text-gray-800 dark:text-white" aria-hidden="true"
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                                     viewBox="0 0 24 24">
@@ -102,7 +102,7 @@
                                         d="m6 6 12 12m3-6a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                                 </svg>
                             @else
-                                <img src="/uploads/{{ $profil->GambarPerusahaan2 }}" alt="gambar2" width="50%">
+                                <img src="/uploads/{{ $profil->GambarPerusahaan3 }}" alt="gambar2" width="50%">
                             @endif
                         </div>
                         <div>

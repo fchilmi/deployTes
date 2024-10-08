@@ -75,7 +75,8 @@ Route::get('/user/detail/{produk:slug}', function (Produk $produk) {
 //Page Produk
 Route::get('/user/dataproduk', [produkController::class, 'index'])->name('users');
 Route::post('/addProduk', [produkController::class, 'addProduks'])->name('produkAdd');
-Route::put('/updateProduk{id}', [produkController::class, 'updateProduks'])->name('produkUpdate');
+Route::put('/updateProduk/{id}', [produkController::class, 'updateProduk'])->name('produkUpdate');
+Route::put('/updateProdukGambar/{id}', [produkController::class, 'updateProdukGambar'])->name('produkUpdateGambar');
 Route::delete('/produk/{id}/destroy', [produkController::class, 'destroy'])->name('produkDestroy');
 Route::get('/produk/{id}/edit', [produkController::class, 'edit'])->name('produksEdit');
 
@@ -84,7 +85,7 @@ Route::get('/user/profilperusahaan', function () {
     return view('user/profilPerusahaan', ['name' => 'Sandi Rp', 'title' => 'About', 'titles' => 'Halaman About']);
 })->name('profilPerusahaan');
 Route::get('/profil/edit', function () {
-    return view('user/editProfil', ['name' => 'Sandi Rp', 'title' => 'Edit Profil', 'titles' => 'Halaman Edit Profil', 'profil' => profil::first()]);
+    return view('user/editProfil', ['profil' => profil::first()]);
 })->name('editProfil');
 // Route::get('/user/addproduk', function () {
 //     return view('user/addProduk', ['name' => 'Sandi Rp', 'title' => 'Add Produk', 'titles' => 'Halaman Add Produk']);

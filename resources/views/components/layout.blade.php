@@ -28,11 +28,11 @@
                         <h1 class="text-3xl font-bold tracking-tight text-gray-900">Profil Perusahaan</h1>
                     </div>
                 </div>
-                <div class="flex item-center">
+                @auth
                 <div class="ml-4 flex items-center">
                     <a href="{{ route('editProfil') }}" type="button" class="text-white bg-blue-800 hover:text-gray-700 border border-blue-700 hover:bg-blue-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Edit Profil</a>
                 </div>
-                </div>
+                @endauth
             </div>
         </header>
         @else
