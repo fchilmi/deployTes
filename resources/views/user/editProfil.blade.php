@@ -1,7 +1,7 @@
 <x-layout>
     <x-slot:title>Edit Profil</x-slot:title>
     <x-slot:titles>Edit Profil</x-slot:titles>
-    <main>
+    <section>
         <div class="grid grif-cols-2 gap-8 md:grid-cols-2 lg:grid-cols-2">
             <div class="py-8 px-4 h-auto max-w-full lg:py-1 rounded-lg bg-gray-500">
                 <form action="{{ route('updateKontak', $profil->id) }}" method="POST">
@@ -120,5 +120,5 @@
                 </form>
             </div>
         </div>
-    </main>
+    </section>
 </x-layout>

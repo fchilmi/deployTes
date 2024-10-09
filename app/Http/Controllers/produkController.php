@@ -48,6 +48,7 @@ class produkController extends Controller
         $produk = new produk();
         $fileNames = [];
         $namaGambarnya = Str::random(10) . $request->file('produkImg')[0]->getClientOriginalName();
+        // dd($request->file('produkImg'));
 
         $data = [
             'namaProduk' => $request->produkName,
@@ -59,20 +60,51 @@ class produkController extends Controller
         ];
         produk::create($data);
         $produkId = $produk->latest()->first()->id;
+        $file = $request->file('produkImg')[0];
+        $gambar = new Gambar();
+        $gambar->idProduk = $produkId;
+        $gambar->namaGambar = $namaGambarnya;
+        $gambar->save();
+        $file->move(public_path('uploads'), $namaGambarnya);
 
-        // dd($data, $fileNames, $produkId);
-        if ($request->file('produkImg')) {
-            foreach ($request->file('produkImg') as $file) {
-                $fileName = $namaGambarnya;
-                $file->move(public_path('uploads'), $fileName);
-                $fileNames[] = $fileName;
-            }
+        // dd(count($request->file('produkImg')));
+        // if (count($request->file('produkImg')) > 1) {
+        //     $awal = $request->file('produkImg')->take(1);
+        //     dd($awal);
+
+
+        //     foreach ($request->file('produkImg') as $file) {
+        //         $fileName = $namaGambarnya;
+        //         $file->move(public_path('uploads'), $fileName);
+        //         $fileNames[] = $fileName;
+        //     }
+        // }
+        // foreach ($fileNames as $fileName) {
+        //     $gambar = new Gambar();
+        //     $gambar->idProduk = $produkId;
+        //     $gambar->namaGambar = $fileName;
+        //     $gambar->save();
+        // }
+        // dd($request->file('produkImg')[1]->getClientOriginalName());
+        // Proses update gambar
+
+        if ($request->file('produkImg')[1]->getClientOriginalName() != null) {
+            // Upload gambar baru
+            $file1 = $request->file('produkImg')[1];
+            $namaGambar1 = Str::random(10) . $file1->getClientOriginalName();
+            // Update database
+            Gambar::create(['idProduk' => $produkId, 'namaGambar' => $namaGambar1]);
+            $file1->move(public_path('uploads'), $namaGambar1);
         }
-        foreach ($fileNames as $fileName) {
-            $gambar = new Gambar();
-            $gambar->idProduk = $produkId;
-            $gambar->namaGambar = $fileName;
-            $gambar->save();
+
+
+        if ($request->file('produkImg')[2]->getClientOriginalName() != null) {
+            // Upload gambar baru
+            $file2 = $request->file('produkImg')[2];
+            $namaGambar2 = Str::random(10) . $file2->getClientOriginalName();
+            // Update database
+            Gambar::create(['idProduk' => $produkId, 'namaGambar' => $namaGambar2]);
+            $file2->move(public_path('uploads'), $namaGambar2);
         }
 
         return redirect()->route('users')->with('success', 'Produk berhasil ditambahkan');

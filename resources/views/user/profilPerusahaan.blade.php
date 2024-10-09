@@ -1,7 +1,7 @@
 <x-layout>
     <x-slot:titles>Profil Perusahaan</x-slot:titles>
 
-    <main>
+    <div class="min-h-full">
         <section class="bg-white py-8 antialiased dark:bg-gray-900 md:py-16">
             <div class="mx-auto max-w-screen-xl px-4 2xl:px-0">
                 <div class="mx-auto max-w-5xl">
@@ -56,5 +56,25 @@
                 </div>
             </div>
         </section>
-    </main>
+
+        @if (session('success'))
+            <script>
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    }
+                });
+                Toast.fire({
+                    icon: "success",
+                    title: "Signed in successfully"
+                });
+            </script>
+        @endif
+    </div>
 </x-layout>

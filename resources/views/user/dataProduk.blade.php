@@ -251,12 +251,20 @@
     </div>
     @if (session('success'))
         <script>
-            Swal.fire({
-                title: "Berhasil",
-                text: "{{ session('success') }}",
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+            });
+            Toast.fire({
                 icon: "success",
-                type: "success",
-                timer: 5000,
+                title: "Signed in successfully"
             });
         </script>
     @endif

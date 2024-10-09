@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
     <link rel="stylesheet"
         href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
-        
+
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <title> {{ $titles }}</title>

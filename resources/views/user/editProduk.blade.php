@@ -1,7 +1,7 @@
 <x-layout>
     <x-slot:title>Edit Produk</x-slot:title>
     <x-slot:titles>Edit Produk</x-slot:titles>
-    <main>
+    <section>
         <div class="grid grif-cols-1 gap-8 md:grid-cols-1 lg:grid-cols-1">
             <div class="py-8 px-4 h-auto max-w-full lg:py-1 rounded-lg bg-gray-500">
                 <h1 class="text-2xl font-semibold -tracking-tighter text-gray-200 mb-6">Deskripsi Produk</h1>
@@ -135,5 +135,5 @@
                 });
             </script>
         @endif
-    </main>
+    </section>
 </x-layout>
