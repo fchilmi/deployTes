@@ -72,7 +72,7 @@ Route::get('/produk/{id}/edit', [produkController::class, 'edit'])->name('produk
 
 //Page Profil
 Route::get('/user/profilperusahaan', function () {
-    return view('user/profilPerusahaan');
+    return view('user/profilPerusahaan', ['profil' => profil::first()]);
 })->name('profilPerusahaan');
 Route::get('/profil/edit', function () {
     return view('user/editProfil', ['profil' => profil::first()]);

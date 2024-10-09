@@ -21,7 +21,7 @@ return new class extends Migration
                 table: 'categories',
                 indexName: 'produks_category_id'
             );
-            $table->string('deskripsiProduk');
+            $table->longText('deskripsiProduk');
             $table->string('namaGambar');
             $table->timestamps();
         });
