@@ -118,7 +118,7 @@
                     @endforelse
                 </div>
             </div>
-            {{-- {{ $posts->links() }} --}}
+            {{ $produks->links() }}
         </div>
         <!-- Filter modal -->
         <form action="#" method="get" id="filterModal" tabindex="-1" aria-hidden="true"

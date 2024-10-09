@@ -27,7 +27,7 @@ class produkController extends Controller
         // $produkTambahan = produk::inRandomOrder()->limit('3')->get();
         // dd($produkTambahan);
         $data = [
-            'produks' => produk::whereNotNull('id')->latest()->paginate(6),
+            'produks' => produk::whereNotNull('id')->first()->paginate(15),
         ];
         return view('user/dataProduk', $data);
     }
@@ -47,6 +47,7 @@ class produkController extends Controller
     {
         $produk = new produk();
         $fileNames = [];
+        $namaGambarnya = Str::random(10) . $request->file('produkImg')[0]->getClientOriginalName();
 
         $data = [
             'namaProduk' => $request->produkName,
@@ -54,25 +55,26 @@ class produkController extends Controller
             'hargaProduk' => $request->produkPrice,
             'category_id' => $request->produkKategori,
             'deskripsiProduk' => $request->produkDeskripsi,
-            'namaGambar' => Str::random(10) . $request->file('produkImg')[0]->getClientOriginalName()
+            'namaGambar' => $namaGambarnya
         ];
         produk::create($data);
         $produkId = $produk->latest()->first()->id;
 
         // dd($data, $fileNames, $produkId);
+        if ($request->file('produkImg')) {
+            foreach ($request->file('produkImg') as $file) {
+                $fileName = $namaGambarnya;
+                $file->move(public_path('uploads'), $fileName);
+                $fileNames[] = $fileName;
+            }
+        }
         foreach ($fileNames as $fileName) {
             $gambar = new Gambar();
             $gambar->idProduk = $produkId;
             $gambar->namaGambar = $fileName;
             $gambar->save();
         }
-        if ($request->file('produkImg')) {
-            foreach ($request->file('produkImg') as $file) {
-                $fileName = Str::random(10) . $file->getClientOriginalName();
-                $file->move(public_path('uploads'), $fileName);
-                $fileNames[] = $fileName;
-            }
-        }
+
         return redirect()->route('users')->with('success', 'Produk berhasil ditambahkan');
     }
 

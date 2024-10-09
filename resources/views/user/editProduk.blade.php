@@ -124,5 +124,16 @@
                 </form>
             </div>
         </div>
+        @if (session('success'))
+            <script>
+                Swal.fire({
+                    title: "Berhasil",
+                    text: "{{ session('success') }}",
+                    icon: "success",
+                    type: "success",
+                    timer: 3000,
+                });
+            </script>
+        @endif
     </main>
 </x-layout>

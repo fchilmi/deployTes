@@ -130,7 +130,8 @@
                                         class="px-6 font-medium whitespace-nowrap dark:text-white border-r border-gray-800 max-w-1">
                                         {{ $loop->iteration }}</th>
                                     <td class="px-6 py-3">{{ $data->namaProduk }}</td>
-                                    <td class="px-6 py-3">{{ $data->hargaProduk }}</td>
+                                    <td class="px-6 py-3">{{ 'Rp. ' . number_format($data->hargaProduk) }}
+                                    </td>
                                     <td class="px-6 py-3 max-w-xs">{{ $data->deskripsiProduk }}</td>
                                     <td class="px-2 py-3">
                                         <form action="{{ route('produkDestroy', $data->id) }}" method="POST">
@@ -248,4 +249,15 @@
             </div>
         </main>
     </div>
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                title: "Berhasil",
+                text: "{{ session('success') }}",
+                icon: "success",
+                type: "success",
+                timer: 5000,
+            });
+        </script>
+    @endif
 </x-layout>

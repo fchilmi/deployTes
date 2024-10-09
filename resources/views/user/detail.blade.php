@@ -104,11 +104,11 @@
                             <hr class="my-4 md:my-8 border-gray-300 dark:border-gray-200" />
 
                             <p class="mb-6 text-gray-500 dark:text-gray-400">
-                                {{ $produk->deskripsiProduk }}
+                                {!! nl2br(e($produk->deskripsiProduk)) !!}
                             </p>
-                            <p>
+                            {{-- <p>
                                 {{ Str::of($produk->deskripsiProduk)->newLine()->append($produk->deskripsiProduk) }}
-                            </p>
+                            </p> --}}
                         </div>
                     </div>
                 </div>
