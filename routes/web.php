@@ -18,7 +18,7 @@ Route::get('/', function () {
 Route::get('/posts', function () {
     // $posts = Post::with(['author', 'category'])->latest()->get();
     // $posts = Post::all();
-    return view('posts', ['name' => 'Sandi Rp', 'title' => 'Blog', 'titles' => 'Halaman Blog', 'posts' => Post::filter(request(['search', 'category', 'author']))->latest()->paginate(10)->withQueryString()]);
+    return view('posts', ['name' => 'Sandi Rp', 'title' => 'Blog', 'titles' => 'Halaman Blog', 'posts' => produk::filter(request(['search', 'category']))->latest()->paginate(3)->withQueryString()]);
 });
 Route::get('/posts/{post:slug}', function (Post $post) {
     // $post = Post::find($slug);
@@ -55,20 +55,24 @@ Route::get('/user/dashboard', function () {
     // $posts = Post::with(['author', 'category'])->latest()->get();
     // $posts = Post::all();
     // return view('/user/dashboard', ['name' => 'Sandi Rp', 'title' => 'Blog', 'titles' => 'Halaman Blog', 'posts' => Post::filter(request(['search', 'category', 'author']))->latest()->paginate(10)->withQueryString()]);
-    return view('/user/dashboard', ['produks' => produk::all()->first()->paginate(9)]);
-});
+    return view('/user/dashboard', ['produks' => produk::filter(request(['search', 'category']))->latest()->paginate(3)->withQueryString()]);
+})->name('dashboard');
 //Detail produk
 Route::get('/user/detail/{produk:slug}', function (Produk $produk) {
     return view('user/detail', ['kontaks' => kontak::all(), 'produk' => $produk, 'produkKategori' => produk::inRandomOrder()->limit('4')->get()]);
 });
 
 //Page Produk
-Route::get('/user/dataproduk', [produkController::class, 'index'])->name('users');
+Route::get('/user/dataproduk', [produkController::class, 'index'])->name('produkHome');
 Route::post('/addProduk', [produkController::class, 'addProduks'])->name('produkAdd');
 Route::put('/updateProduk/{id}', [produkController::class, 'updateProduk'])->name('produkUpdate');
 Route::put('/updateProdukGambar/{id}', [produkController::class, 'updateProdukGambar'])->name('produkUpdateGambar');
 Route::delete('/produk/{id}/destroy', [produkController::class, 'destroy'])->name('produkDestroy');
 Route::get('/produk/{id}/edit', [produkController::class, 'edit'])->name('produksEdit');
+
+Route::get('/user/addproduk', function () {
+    return view('user/addProduk', ['produks' => produk::all()]);
+})->name('cobaNambah');
 
 //Page Profil
 Route::get('/user/profilperusahaan', function () {

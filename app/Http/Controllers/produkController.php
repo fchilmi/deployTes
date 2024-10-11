@@ -107,7 +107,7 @@ class produkController extends Controller
             $file2->move(public_path('uploads'), $namaGambar2);
         }
 
-        return redirect()->route('users')->with('success', 'Produk berhasil ditambahkan');
+        return redirect()->route('produkHome')->with('success', 'Produk berhasil ditambahkan');
     }
 
     public function updateProduk(Request $request, string $id)
@@ -126,7 +126,7 @@ class produkController extends Controller
         ];
 
         $produk->update($data);
-        return redirect()->route('users')->with('success', 'Produk berhasil diupdate');
+        return redirect()->route('produkHome')->with('success', 'Produk berhasil diupdate');
     }
     public function updateProdukGambar(Request $request, string $id)
     {
@@ -201,12 +201,12 @@ class produkController extends Controller
         // Update informasi produk lainnya
         if ($request->hasFile('produkImg1')) {
             $produk->update([
-                'namaGambar' => Str::random(10) . $request->file('produkImg1')->getClientOriginalName(),
+                'namaGambar' => $namaGambar1,
                 'updated_at' => now(),
             ]);
         }
 
-        return redirect()->route('users')->with('success', 'Produk berhasil diupdate');
+        return redirect()->route('produkHome')->with('success', 'Produk berhasil diupdate');
     }
     public function destroy($id)
     {
@@ -224,6 +224,6 @@ class produkController extends Controller
             }
         }
         $produk->delete();
-        return redirect()->route('users')->with('success', 'Produk berhasil dihapus');
+        return redirect()->route('produkHome')->with('success', 'Produk berhasil dihapus');
     }
 }

@@ -6,7 +6,7 @@
                     {{-- @dd($profile) --}}
                     <img class="h-10 w-10" src="/img/{{ $profile[0]->logoPerusahaan }}" alt="Your Company">
                 </div>
-                <div class="hidden md:block">
+                <div class="hidden sm:ml-6 sm:block">
                     <div class="ml-10 flex items-baseline space-x-4">
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                         <x-nav-link href='/user/dashboard' :active="request()->is('user/dashboard')">Produk</x-nav-link>
@@ -128,9 +128,9 @@
                                 </form>
                             </div>
                         </div>
-                    </div>
+                    @endauth
                 </div>
-            @endauth
+            </div>
             <div class="-mr-2 flex md:hidden">
                 <!-- Mobile menu button -->
                 <button type="button" @click="isOpen = !isOpen"
@@ -234,23 +234,22 @@
         <div class="border-t border-gray-700 pb-3 pt-4">
             <div class="flex items-center px-5">
                 <div class="flex-shrink-0">
-                    <img class="h-10 w-10 rounded-full"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                        alt="">
+                    <svg class="w-[32px] h-[32px] text-gray-100 dark:text-white" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                        viewBox="0 0 24 24">
+                        <path fill-rule="evenodd"
+                            d="M12 20a7.966 7.966 0 0 1-5.002-1.756l.002.001v-.683c0-1.794 1.492-3.25 3.333-3.25h3.334c1.84 0 3.333 1.456 3.333 3.25v.683A7.966 7.966 0 0 1 12 20ZM2 12C2 6.477 6.477 2 12 2s10 4.477 10 10c0 5.5-4.44 9.963-9.932 10h-.138C6.438 21.962 2 17.5 2 12Zm10-5c-1.84 0-3.333 1.455-3.333 3.25S10.159 13.5 12 13.5c1.84 0 3.333-1.455 3.333-3.25S13.841 7 12 7Z"
+                            clip-rule="evenodd" />
+                    </svg>
+
                 </div>
                 <div class="ml-3">
-                    <div class="text-base font-medium leading-none text-white">Tom Cook</div>
-                    <div class="text-sm font-medium leading-none text-gray-400">tom@example.com</div>
+                    <div class="text-base font-medium leading-none text-white">{{ Auth::user()->name }}</div>
                 </div>
 
             </div>
             <div class="mt-3 space-y-1 px-2">
-                <a href="#"
-                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Your
-                    Profile</a>
-                <a href="#"
-                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Settings</a>
-                <a href="#"
+                <a href="/logout2"
                     class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Sign
                     out</a>
             </div>

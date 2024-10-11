@@ -53,7 +53,7 @@ class UsersController extends Controller
         ];
 
         if (Auth::attempt($get)) {
-            return redirect()->intended('users');
+            return redirect()->intended('user/dashboard');
         } else {
             return redirect()->back()->withErrors('Username atau Password Tidak Sesuai')->withInput();
         }

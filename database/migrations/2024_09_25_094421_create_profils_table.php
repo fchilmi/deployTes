@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('namaPerusahaan');
             $table->string('alamatToko');
             $table->string('alamatGudang');
-            $table->string('deskripsiPerusahaan');
+            $table->longText('deskripsiPerusahaan');
             $table->string('logoPerusahaan');
             $table->string('GambarPerusahaan1')->nullable();
             $table->string('GambarPerusahaan2')->nullable();
