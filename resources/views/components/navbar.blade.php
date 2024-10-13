@@ -243,10 +243,11 @@
                     </svg>
 
                 </div>
-                <div class="ml-3">
-                    <div class="text-base font-medium leading-none text-white">{{ Auth::user()->name }}</div>
-                </div>
-
+                @auth
+                    <div class="ml-3">
+                        <div class="text-base font-medium leading-none text-white">{{ Auth::user()->name }}</div>
+                    </div>
+                @endauth
             </div>
             <div class="mt-3 space-y-1 px-2">
                 <a href="/logout2"

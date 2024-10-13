@@ -15,11 +15,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('/user/dashboard', ['produks' => produk::all()->first()->paginate(9)]);
 });
-Route::get('/posts', function () {
-    // $posts = Post::with(['author', 'category'])->latest()->get();
-    // $posts = Post::all();
-    return view('posts', ['name' => 'Sandi Rp', 'title' => 'Blog', 'titles' => 'Halaman Blog', 'posts' => produk::filter(request(['search', 'category']))->latest()->paginate(3)->withQueryString()]);
-});
+Route::get('/posts', [UsersController::class, 'cobaUser'])->name('posts');
 Route::get('/posts/{post:slug}', function (Post $post) {
     // $post = Post::find($slug);
     return view('post', ['title' => 'Single Post', 'titles' => 'Halaman Post', 'post' => $post]);
