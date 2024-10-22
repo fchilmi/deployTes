@@ -2,7 +2,7 @@
     <x-slot:title>Data Produk</x-slot:title>
     <x-slot:titles class="mb-4">Data Produk</x-slot:titles>
 
-    <section class="bg-gray-50 antialiased dark:bg-gray-900">
+    <section class="antialiased dark:bg-gray-900">
         <div class="mx-auto max-w-screen-xl px-4 2xl:px-0">
             <!-- Heading & Filters -->
             <div class="py-4 px-4 mx-auto max-w-screen-xl lg:px-6">
@@ -33,7 +33,7 @@
                             </div>
                             <div>
                                 <button type="submit"
-                                    class="py-3 px-5 w-full text-sm font-medium text-center text-white rounded-lg border cursor-pointer bg-primary-700 border-primary-600 sm:rounded-none sm:rounded-r-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Search</button>
+                                    class="py-3 px-5 w-full text-sm font-medium text-center text-white rounded-lg border cursor-pointer bg-primary-900 border-primary-600 sm:rounded-none sm:rounded-r-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Search</button>
                             </div>
                         </div>
                     </form>
@@ -95,8 +95,8 @@
             <div class="px-4 mx-auto max-w-screen-xl lg:px-0">
                 <div class="grid gap-8 md:grid-cols-3 lg:grid-cols-3">
                     @forelse($produks as $produk)
-                        <div
-                            class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+                        <div style="background-color: #2b2b36"
+                            class="rounded-lg border border-gray-200 p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
                             <div class="h-56 w-full">
                                 <a href="#">
                                     <img class="mx-auto h-full dark:hidden" src="/uploads/{{ $produk->namaGambar }}"
@@ -108,14 +108,14 @@
                                 </div>
 
                                 <a href=""
-                                    class="text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white">
+                                    class="text-lg font-semibold leading-tight text-yellow-500 hover:underline dark:text-white">
                                     {{ $produk->namaProduk }}</a>
 
                                 <div class="my-8 flex items-center justify-between gap-4">
                                     <p class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white">
                                     </p>
                                     <a href="/user/detail/{{ $produk->slug }}"
-                                        class="inline-flex items-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                                        class="inline-flex items-center rounded-lg bg-primary-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-600 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                                         Detail
                                     </a>
                                 </div>

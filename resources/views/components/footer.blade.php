@@ -1,4 +1,4 @@
-<footer class="bg-gray-700 antialiased dark:bg-gray-800">
+<footer class="bg-gray-900 antialiased dark:bg-gray-800">
     <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
         <article class="p-6 ">
 

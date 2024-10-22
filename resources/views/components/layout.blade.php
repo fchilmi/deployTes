@@ -9,23 +9,35 @@
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link rel="stylesheet" href="//cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css">
     <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
     <link rel="stylesheet"
         href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
 
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <!--Regular Datatables CSS-->
-    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
-    <!--Responsive Extension Datatables CSS-->
-    <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
+        <link href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" rel=" stylesheet">
+        <!--Replace with your tailwind.css once created-->
+
+
+        <!--Regular Datatables CSS-->
+        <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+        <!--Responsive Extension Datatables CSS-->
+        <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
+
+        {{-- <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.dataTables.min.css"> --}}
 
     <title> {{ $titles }}</title>
 
     <style>
         /*Overrides for Tailwind CSS */
-
+.dataTables_wrapper label,
+#example_info,
+#example_next,#example_previous{
+    color: #fff
+}
+.dataTables_wrapper table tbody tr{
+    background-color: gray;
+}
         /*Form fields*/
         .dataTables_wrapper select,
         .dataTables_wrapper .dataTables_filter input {
@@ -53,7 +65,8 @@
         /*Row Hover*/
         table.dataTable.hover tbody tr:hover,
         table.dataTable.display tbody tr:hover {
-            background-color: #ebf4ff;
+            background-color: #090612;
+            color:white
             /*bg-indigo-100*/
         }
 
@@ -85,7 +98,7 @@
 
         /*Pagination Buttons - Hover */
         .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
-            color: #fff !important;
+            color: #000 !important;
             /*text-white*/
             box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
             /*shadow*/
@@ -93,7 +106,7 @@
             /*font-bold*/
             border-radius: .25rem;
             /*rounded*/
-            background: #667eea !important;
+            background: #fff !important;
             /*bg-indigo-500*/
             border: 1px solid transparent;
             /*border border-transparent*/
@@ -121,11 +134,11 @@
     <div class="min-h-full">
         <x-navbar></x-navbar>
         @if (request()->routeIs('profilPerusahaan'))
-        <header class="bg-white shadow">
+        <header class="bg-black bg-opacity-80 text-yellow-500 border-b border-b-white">
             <div class="flex h-16 items-center justify-between mx-auto max-w-7xl px-4 py-2 mt-16 sm:px-6 lg:px-8">
                 <div class="flex items-center">
                     <div class="flex items-baseline">
-                        <h1 class="text-3xl font-bold tracking-tight text-gray-900">{{ $profile[0]->namaPerusahaan }}</h1>
+                        <h1 class="text-3xl font-bold tracking-tight">{{ $profile[0]->namaPerusahaan }}</h1>
                     </div>
                 </div>
                 @auth
@@ -138,20 +151,22 @@
         @else
         <x-header>{{ $title }}</x-header> @endif
 
-        <main>
-            <div class="mx-auto
-        max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
+        <main style="background-color:
+        #1e1e28">
     {{ $slot }}
-    </div>
     </main>
     <x-footer></x-footer>
     </div>
+    {{-- <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.min.js"></script> --}}
     <!-- jQuery -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
     <!--Datatables -->
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+
     <script>
         $(document).ready(function() {
 
@@ -159,7 +174,7 @@
                     responsive: true
                 })
                 .columns.adjust()
-                .responsive.recalc();
+                .responsive.recalc()
         });
     </script>
     </body>
