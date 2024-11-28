@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('/user/dashboard', ['produks' => produk::all()->first()->paginate(9)]);
 });
-Route::get('/posts', [UsersController::class, 'cobaUser'])->name('posts');
+Route::get('/posts', [UsersController::class, 'cobaUser'])->name('postss');
+// Route::get('/server', [UsersController::class, 'cobaUser'])->name('server');
 Route::get('/posts/{post:slug}', function (Post $post) {
     // $post = Post::find($slug);
     return view('post', ['title' => 'Single Post', 'titles' => 'Halaman Post', 'post' => $post]);
@@ -51,7 +52,7 @@ Route::get('/user/dashboard', function () {
     // $posts = Post::with(['author', 'category'])->latest()->get();
     // $posts = Post::all();
     // return view('/user/dashboard', ['name' => 'Sandi Rp', 'title' => 'Blog', 'titles' => 'Halaman Blog', 'posts' => Post::filter(request(['search', 'category', 'author']))->latest()->paginate(10)->withQueryString()]);
-    return view('/user/dashboard', ['produks' => produk::filter(request(['search', 'category']))->latest()->paginate(3)->withQueryString()]);
+    return view('/user/dashboard', ['produks' => produk::filter(request(['search', 'category']))->latest()->paginate()->withQueryString()]);
 })->name('dashboard');
 //Detail produk
 Route::get('/user/detail/{produk:slug}', function (Produk $produk) {

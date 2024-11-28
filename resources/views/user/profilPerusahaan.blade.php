@@ -2,25 +2,19 @@
     <x-slot:titles>Profil Perusahaan</x-slot:titles>
 
     <div class="min-h-full">
-        <section class="bg-white py-8 antialiased dark:bg-gray-900 md:py-16">
-            <div class="mx-auto max-w-screen-xl px-4 2xl:px-0">
+        <section class="py-8 antialiased dark:bg-gray-900 md:py-16" style="background-color: #2b2b36">
+            <div class="mx-auto max-w-screen-xl 2xl:px-0 bg-gray-700 shadow-2xl">
+                <img class="w-full" src="/img/{{ $profil->GambarPerusahaan1 }}" alt="" />
                 <div class="mx-auto max-w-5xl">
 
-                    <div class="my-8 xl:mb-16 xl:mt-12">
-                        <img class="w-full dark:hidden" src="/uploads/{{ $profil->GambarPerusahaan1 }}" alt="" />
-                        <img class="hidden w-full dark:block"
-                            src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-showcase-dark.svg"
-                            alt="" />
-                    </div>
-
                     <div class="mx-auto mb-6 max-w-3xl space-y-6 md:mb-12">
-                        <p class="text-base font-normal text-gray-500 dark:text-gray-400 text-justify">
+                        <p class="text-base font-normal text-gray-200 dark:text-gray-400 text-justify pt-10">
                             <b>{{ $profil->namaPerusahaan }}</b><br>
                             Alamat Toko bisa dikunjungi di {{ $profil->alamatToko }} <br>
                             Alamat Gudang bisa dikunjungi di {{ $profil->alamatGudang }} <br><br>
                         </p>
 
-                        <p class="text-base font-normal text-gray-500 dark:text-gray-400 text-justify">
+                        <p class="text-base font-normal text-gray-200 dark:text-gray-400 text-justify pb-10">
                             {!! nl2br(e($profil->deskripsiPerusahaan)) !!}
                         </p>
                     </div>

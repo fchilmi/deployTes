@@ -147,7 +147,7 @@
 
         </div>
     </section>
-    @if (session('success'))
+    @if (session('produk'))
         <script>
             const Toast = Swal.mixin({
                 toast: true,
@@ -162,7 +162,7 @@
             });
             Toast.fire({
                 icon: "success",
-                title: "Signed in successfully"
+                title: "{{ session('produk') }}"
             });
         </script>
     @endif

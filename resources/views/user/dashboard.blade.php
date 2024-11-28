@@ -2,7 +2,7 @@
     <x-slot:title>Data Produk</x-slot:title>
     <x-slot:titles class="mb-4">Data Produk</x-slot:titles>
 
-    <section class="antialiased dark:bg-gray-900">
+    <section class="antialiased dark:bg-gray-900 pb-10">
         <div class="mx-auto max-w-screen-xl px-4 2xl:px-0">
             <!-- Heading & Filters -->
             <div class="py-4 px-4 mx-auto max-w-screen-xl lg:px-6">
@@ -98,7 +98,7 @@
                         <div style="background-color: #2b2b36"
                             class="rounded-lg border border-gray-200 p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
                             <div class="h-56 w-full">
-                                <a href="#">
+                                <a href="/user/detail/{{ $produk->slug }}">
                                     <img class="mx-auto h-full dark:hidden" src="/uploads/{{ $produk->namaGambar }}"
                                         alt="" />
                                 </a>
@@ -107,7 +107,7 @@
                                 <div class="mb-4 flex items-center justify-between gap-4">
                                 </div>
 
-                                <a href=""
+                                <a href="/user/detail/{{ $produk->slug }}"
                                     class="text-lg font-semibold leading-tight text-yellow-500 hover:underline dark:text-white">
                                     {{ $produk->namaProduk }}</a>
 

@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\produk;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Yajra\DataTables\DataTables;
 
 class UsersController extends Controller
 {
@@ -108,5 +110,40 @@ class UsersController extends Controller
         // dd($cari);
         $cari->delete();
         return redirect()->route('users');
+    }
+
+    // 'name' => $request->name,
+    //         'username' => 'user-' . $request->name,
+    //         'email' => $request->email,
+
+    public function beran()
+    {
+        $post = User::all();
+        // dd($post->name);
+        return view('posts', $post);
+    }
+    public function cobaUser(Request $request)
+    {
+        // dd(User::all());
+        // $data = produk::all();
+        // if ($request->ajax()) {
+        //     return DataTables::of($data)
+        //         ->addColumn('nama', function ($data) {
+        //             return $data->namaProduk;
+        //         })
+        //         ->addColumn('harga', function ($data) {
+        //             return $data->hargaProduk;
+        //         })
+        //         ->addColumn('deskripsi', function ($data) {
+        //             return Str::of($data->deskripsiProduk)->limit(50);
+        //         })
+        //         ->addColumn('action', function ($data) {
+        //             return '<a href="#" class="btn btn-primary"><i class="fas fa-pen"></i> Ubah</a>
+        //             <a data-toggle="modal" data-target="#" class="btn btn-warning"><i class="fas fa-trash"></i> Hapus</a>';
+        //         })
+        //         ->rawColumns(['foto', 'action'])
+        //         ->make(true);
+        // }
+        // return view('posts', compact('request', 'data'));
     }
 }

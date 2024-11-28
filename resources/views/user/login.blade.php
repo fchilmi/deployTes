@@ -19,19 +19,20 @@
 </head>
 
 <body class="text-gray-800 antialiased">
-    <main>
+    <main class="">
         <section class="absolute w-full h-full">
-            <div class="absolute top-0 w-full h-full bg-gray-900"
-                style="background-image: url(/img/register_bg_2.png); background-size: 100%; background-repeat: no-repeat;">
+            <div class="absolute w-full h-full bg-gray-900"
+                style="background-image: url(/img/register.png); background-size: cover; background-repeat: no-repeat;">
             </div>
+            {{-- <img src="/img/register.png" alt="" class="absolute h-auto max-w-full"> --}}
             <div class="container mx-auto px-4 h-full">
                 <div class="flex content-center items-center justify-center h-full">
                     <div class="w-full lg:w-4/12 px-4">
                         <div
-                            class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300 border-0">
+                            class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-600 border-0">
                             <div class="rounded-t mb-0 px-6 py-6">
                                 <div class="text-center mb-3">
-                                    <h3 class="text-gray-600 text-sm font-bold">
+                                    <h3 class="text-white text-sm font-bold">
                                         Nama Perusahaan
                                     </h3>
                                 </div>
@@ -56,17 +57,17 @@
                                 <form action="{{ route('users.login') }}" method="POST">
                                     @csrf
                                     <div class="relative w-full mb-3">
-                                        <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
+                                        <label class="block uppercase text-white text-xs font-bold mb-2"
                                             for="grid-password">Username</label><input type="text" name="name"
-                                            class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                                            class="border-0 px-3 py-3 placeholder-gray-400 text-white bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
                                             placeholder="Username" style="transition: all 0.15s ease 0s;"
                                             value="{{ old('name') }}" />
                                     </div>
                                     <div class="relative w-full mb-3">
-                                        <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
+                                        <label class="block uppercase text-white text-xs font-bold mb-2"
                                             for="grid-password">Password</label>
                                         <input type="password" id="password" name="password"
-                                            class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                                            class="border-0 px-3 py-3 placeholder-gray-400 text-white bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
                                             placeholder="Password" style="transition: all 0.15s ease 0s;" /><button
                                             type="button" id="togglePassword" class="focus:outline-none -ml-9">
                                             <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240227164304/visible.png"
@@ -83,7 +84,7 @@
                                     </div>
                                     <div class="text-center mt-6">
                                         <button type="submit"
-                                            class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full hover:bg-gray-600"
+                                            class="bg-blue-400 text-white active:bg-blue-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full hover:bg-blue-800"
                                             type="button" style="transition: all 0.15s ease 0s;">
                                             Sign In
                                         </button>

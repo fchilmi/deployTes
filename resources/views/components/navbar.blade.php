@@ -1,10 +1,11 @@
-<nav class="bg-gray-900 fixed w-full z-10 top-0 start-0 border-b border-b-white" x-data="{ isOpen: false }">
+<nav class="fixed w-full z-10 top-0 start-0 border-b border-b-white" x-data="{ isOpen: false }"
+    style="background-image: url(/img/web-Header-baru.png); background-size: cover; background-repeat: no-repeat;">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
             <div class="flex items-center">
                 <div class="flex-shrink-0">
                     {{-- @dd($profile) --}}
-                    <img class="h-10 w-10" src="/img/{{ $profile[0]->logoPerusahaan }}" alt="Your Company">
+                    <img class="h-12 w-12" src="/img/{{ $profile[0]->logoPerusahaan }}" alt="Your Company">
                 </div>
                 <div class="hidden sm:ml-6 sm:block">
                     <div class="ml-10 flex items-baseline space-x-4">
@@ -12,7 +13,7 @@
                         <x-nav-link href='/user/dashboard' :active="request()->is('user/dashboard')">Produk</x-nav-link>
                         <x-nav-link href='/user/profilperusahaan' :active="request()->is('user/profilperusahaan')">Profil Perusahaan</x-nav-link>
                         <x-nav-link> <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
-                                class="flex items-center justify-between w-full text-gray-300 hover:bg-gray-700 hover:text-opacity-50 md:hover:bg-gray-700 md:border-0 md:hover:text-white md:p-0 md:w-auto">Dropdown
+                                class="flex items-center justify-between w-full text-gray-800 hover:bg-gray-700 md:hover:bg-gray-700 md:border-0 md:hover:text-white md:p-0 md:w-auto">Dropdown
                                 <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                     fill="none" viewBox="0 0 10 6">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -112,7 +113,8 @@
                             <div x-show="isOpen" x-transition:enter="transition ease-out duration-100 transform"
                                 x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
                                 x-transition:leave="transition ease-in duration-75 transform"
-                                x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95"
+                                x-transition:leave-start="opacity-100 scale-100"
+                                x-transition:leave-end="opacity-0 scale-95"
                                 class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                                 role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button"
                                 tabindex="-1">

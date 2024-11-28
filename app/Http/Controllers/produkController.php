@@ -88,7 +88,7 @@ class produkController extends Controller
         // dd($request->file('produkImg')[1]->getClientOriginalName());
         // Proses update gambar
 
-        if ($request->file('produkImg')[1]->getClientOriginalName() != null) {
+        if (count($request->file('produkImg')) == 2) {
             // Upload gambar baru
             $file1 = $request->file('produkImg')[1];
             $namaGambar1 = Str::random(10) . $file1->getClientOriginalName();
@@ -96,9 +96,7 @@ class produkController extends Controller
             Gambar::create(['idProduk' => $produkId, 'namaGambar' => $namaGambar1]);
             $file1->move(public_path('uploads'), $namaGambar1);
         }
-
-
-        if ($request->file('produkImg')[2]->getClientOriginalName() != null) {
+        if (count($request->file('produkImg')) == 3) {
             // Upload gambar baru
             $file2 = $request->file('produkImg')[2];
             $namaGambar2 = Str::random(10) . $file2->getClientOriginalName();
@@ -106,8 +104,7 @@ class produkController extends Controller
             Gambar::create(['idProduk' => $produkId, 'namaGambar' => $namaGambar2]);
             $file2->move(public_path('uploads'), $namaGambar2);
         }
-
-        return redirect()->route('produkHome')->with('success', 'Produk berhasil ditambahkan');
+        return redirect()->route('produkHome')->with('produk', 'Produk berhasil ditambahkan');
     }
 
     public function updateProduk(Request $request, string $id)
@@ -126,7 +123,7 @@ class produkController extends Controller
         ];
 
         $produk->update($data);
-        return redirect()->route('produkHome')->with('success', 'Produk berhasil diupdate');
+        return redirect()->route('produkHome')->with('produk', 'Produk berhasil diupdate');
     }
     public function updateProdukGambar(Request $request, string $id)
     {
