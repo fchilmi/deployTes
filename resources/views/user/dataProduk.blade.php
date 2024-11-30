@@ -2,7 +2,7 @@
     <x-slot:title>Data Produk </x-slot:title>
     <x-slot:titles>Data Produk</x-slot:titles>
     <section class="text-white">
-        <div class="mx-auto max-w-7xl px-4 py-2  sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-7xl px-8 py-6 sm:px-6 lg:px-8">
 
             <!--Card-->
             <div id='recipients' class="p-8 mt-1 lg:mt-0 rounded-3xl bg-black bg-opacity-40">

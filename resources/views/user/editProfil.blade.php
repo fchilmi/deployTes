@@ -2,8 +2,8 @@
     <x-slot:title>Edit Profil</x-slot:title>
     <x-slot:titles>Edit Profil</x-slot:titles>
     <section>
-        <div class="grid grif-cols-2 gap-8 md:grid-cols-2 lg:grid-cols-2">
-            <div class="py-8 px-4 h-auto max-w-full lg:py-1 rounded-lg bg-gray-500">
+        <div class="grid grid-cols-2 gap-8 md:grid-cols-2 lg:grid-cols-2 px-8 py-6">
+            <div class="py-8 px-4 h-auto max-w-full lg:py-1 rounded-lg" style="background-color: #2b2b36">
                 <form action="{{ route('updateKontak', $profil->id) }}" method="POST">
                     @csrf
                     @method('PUT')
@@ -48,7 +48,7 @@
                     </div>
                 </form>
             </div>
-            <div class="py-8 px-4 h-auto max-w-full lg:py-1 rounded-lg bg-gray-600">
+            <div class="py-8 px-4 h-auto max-w-full lg:py-1 rounded-lg" style="background-color: #2b2b36">
                 <form action="{{ route('updateGambar', $profil->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')

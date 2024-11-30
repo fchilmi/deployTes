@@ -108,7 +108,7 @@
                                 </div>
 
                                 <a href="/user/detail/{{ $produk->slug }}"
-                                    class="text-lg font-semibold leading-tight text-yellow-500 hover:underline dark:text-white">
+                                    class="text-lg font-semibold leading-tight text-white hover:underline dark:text-white">
                                     {{ $produk->namaProduk }}</a>
 
                                 <div class="my-8 flex items-center justify-between gap-4">
@@ -124,7 +124,7 @@
 
                     @empty
                         <div>
-                            <p class="font-semibold text-xl my-4">Artikel tidak ditemukan</p>
+                            <p class="font-semibold text-xl  text-white my-4">Artikel tidak ditemukan</p>
                             <a href="/posts" class="text-blue-600 hover:underline">&laquo; Back to all
                                 posts</a>
                         </div>

@@ -134,7 +134,7 @@
     <div class="min-h-full">
         <x-navbar></x-navbar>
         @if (request()->routeIs('profilPerusahaan'))
-        <header class="bg-black bg-opacity-80 text-yellow-500 border-b border-b-white">
+        <header class="bg-gray-900 text-yellow-500 border-b border-b-white">
             <div class="flex h-16 items-center justify-between mx-auto max-w-7xl px-4 py-2 mt-16 sm:px-6 lg:px-8">
                 <div class="flex items-center">
                     <div class="flex items-baseline">

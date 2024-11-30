@@ -1,6 +1,6 @@
-<footer class=""
+<footer class="w-full"
     style="background-image: url(/img/web-Footer.png); background-size: cover; background-repeat: no-repeat;">
-    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-2 px-8">
         <article class="p-6 ">
 
             <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">

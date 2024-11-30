@@ -2,9 +2,9 @@
     <x-slot:titles>Profil Perusahaan</x-slot:titles>
 
     <div class="min-h-full">
-        <section class="py-8 antialiased dark:bg-gray-900 md:py-16" style="background-color: #2b2b36">
-            <div class="mx-auto max-w-screen-xl 2xl:px-0 bg-gray-700 shadow-2xl">
-                <img class="w-full" src="/img/{{ $profil->GambarPerusahaan1 }}" alt="" />
+        <section class="py-12 antialiased dark:bg-gray-900 md:py-12 md:px-8">
+            <div class="mx-auto max-w-screen-xl 2xl:px-0 bg-gray-700 shadow-2xl rounded-xl">
+                <img class="w-full rounded-t-xl" src="/img/{{ $profil->GambarPerusahaan1 }}" alt="" />
                 <div class="mx-auto max-w-5xl">
 
                     <div class="mx-auto mb-6 max-w-3xl space-y-6 md:mb-12">

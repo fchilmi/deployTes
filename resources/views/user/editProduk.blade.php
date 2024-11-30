@@ -2,9 +2,10 @@
     <x-slot:title>Edit Produk</x-slot:title>
     <x-slot:titles>Edit Produk</x-slot:titles>
     <section>
-        <div class="grid grif-cols-1 gap-8 md:grid-cols-1 lg:grid-cols-1">
-            <div class="py-8 px-4 h-auto max-w-full lg:py-1 rounded-lg bg-gray-500">
-                <h1 class="text-2xl font-semibold -tracking-tighter text-gray-200 mb-6">Deskripsi Produk</h1>
+        <div class="grid grif-cols-1 gap-8 md:grid-cols-1 lg:grid-cols-1 px-8 py-6">
+            <div class="py-8 px-4  h-auto max-w-full lg:py-1 rounded-lg" style="background-color: #2b2b36">
+                <h1 class="text-2xl font-semibold -tracking-tighter text-gray-200">Deskripsi Produk</h1>
+                <hr class="border-gray-400 mt-2 mb-6" />
                 <form action="{{ route('produkUpdate', $hasilProduk->id) }}" method="POST">
                     @csrf
                     @method('PUT')
@@ -58,8 +59,9 @@
             </div>
 
             {{-- UPDATE GAMBAR --}}
-            <div class="py-8 px-4 h-auto max-w-full lg:py-1 rounded-lg bg-gray-600">
-                <h1 class="text-2xl font-semibold -tracking-tighter text-gray-200 mb-10">Gambar Produk</h1>
+            <div class="py-8 px-4 h-auto max-w-full lg:py-1 rounded-lg" style="background-color: #2b2b36">
+                <h1 class="text-2xl font-semibold -tracking-tighter text-gray-200">Gambar Produk</h1>
+                <hr class="border-gray-400 mt-2 mb-6" />
                 <form action="{{ route('produkUpdateGambar', $hasilProduk->id) }}" method="POST"
                     enctype="multipart/form-data">
                     @csrf
@@ -67,7 +69,7 @@
                     <div class="grid gap-4 mb-4 sm:grid-cols-3">
                         @if ($file == 1)
                             @foreach ($hasilGambar as $hg)
-                                <div class="w-full h-56 bg-gray-50">
+                                <div class="w-full h-56">
                                     <img src="/uploads/{{ $hg->namaGambar }}" alt=""
                                         class="mx-auto h-full bg-transparent">
                                 </div>

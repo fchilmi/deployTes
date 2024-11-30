@@ -3,7 +3,7 @@
     <x-slot:titles class="mb-4">Data Produk</x-slot:titles>
 
     <div class="min-h-full">
-        <section class="py-8 bg-white md:py-16 dark:bg-gray-900 antialiased">
+        <section class="py-8  md:py-16 dark:bg-gray-900 antialiased">
             <div class="max-w-screen-xl px-4 mx-auto 2xl:px-0">
                 <div class="lg:grid lg:grid-cols-2 lg:gap-8 xl:gap-16">
                     {{-- <img class="w-full dark:hidden" src="/img/{{ $produk->namaGambar }}" alt="" /> --}}
@@ -52,12 +52,12 @@
 
 
                     <div class="mt-6 sm:mt-8 lg:mt-0">
-                        <h1 class="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white">
+                        <h1 class="text-xl font-semibold text-yellow-400 sm:text-2xl dark:text-white">
                             {{ $produk->namaProduk }}
                         </h1>
                         <div class="mt-4 sm:items-center sm:gap-4 sm:flex">
-                            <p class="text-2xl font-extrabold text-gray-900 sm:text-xl dark:text-white">
-                                {{ $produk->created_at->diffForHumans() }}</p> | Min Pembelian >1
+                            <p class="text-2xl font-extrabold text-white sm:text-xl dark:text-white">
+                                {{ $produk->created_at->diffForHumans() }} | Min Pembelian >1
                             </p>
 
                         </div>
@@ -66,7 +66,7 @@
 
                                 @foreach ($kontaks as $nomer)
                                     <a href="https://api.whatsapp.com/send?phone={{ $nomer->nomor }}&text=Hello%2C%20Kami%20Dapat%20No%20Anda%20Dari%20{{ $produk->namaProduk }}"
-                                        class="text-white mt-4 sm:mt-0 bg-green-500 hover:bg-green-600 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-lg sm:text-xl flex items-center"
+                                        class="text-white mt-4 sm:mt-0 bg-green-600 hover:bg-green-600 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-lg sm:text-xl flex items-center"
                                         role="button">
                                         <svg class="mr-2 ml-2 w-[40px] h-[40px] text-gray-800 dark:text-white"
                                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
@@ -85,7 +85,7 @@
 
                         <hr class="my-4 md:my-8 border-gray-300 dark:border-gray-200" />
 
-                        <p class="mb-6 text-gray-500 dark:text-gray-400">
+                        <p class="mb-6 text-gray-300 dark:text-gray-400">
                             {!! nl2br(e($produk->deskripsiProduk)) !!}
                         </p>
                         {{-- <p>
@@ -98,8 +98,8 @@
             <div class="px-4 mx-auto max-w-screen-xl lg:px-0">
                 <div class="grid gap-8 md:grid-cols-4 lg:grid-cols-4 mt-10">
                     @foreach ($produkKategori as $pk)
-                        <div
-                            class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+                        <div class="rounded-lg border border-gray-200  p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800"
+                            style="background-color: #2b2b36">
                             <div class="h-56 w-full">
                                 <a href="#">
                                     <img class="mx-auto h-full dark:hidden" src="/uploads/{{ $pk->namaGambar }}"
@@ -114,14 +114,14 @@
                                 </div>
 
                                 <a href=""
-                                    class="text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white">
+                                    class="text-lg font-semibold leading-tight text-white hover:underline dark:text-white">
                                     {{ $pk->namaProduk }}</a>
 
                                 <div class="my-8 flex items-center justify-between gap-4">
                                     <p class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white">
                                     </p>
                                     <a href="/user/detail/{{ $pk->slug }}"
-                                        class="inline-flex items-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                                        class="inline-flex items-center rounded-lg bg-primary-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-600 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                                         Detail
                                     </a>
                                 </div>
