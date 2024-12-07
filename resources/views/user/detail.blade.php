@@ -17,7 +17,7 @@
                                 <div class="hidden duration-700 ease-in-out" data-carousel-item>
                                     <img src="/uploads/{{ $gambar->namaGambar }}"
                                         class="absolute block w-full bg-white -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 h-full bg-transparent"
-                                        alt="...">
+                                        alt="Gambar {{ $produk->namaProduk }}">
                                 </div>
                             @endforeach
                         </div>
@@ -101,9 +101,9 @@
                         <div class="rounded-lg border border-gray-200  p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800"
                             style="background-color: #2b2b36">
                             <div class="h-56 w-full">
-                                <a href="#">
+                                <a href="/user/detail/{{ $pk->slug }}">
                                     <img class="mx-auto h-full dark:hidden" src="/uploads/{{ $pk->namaGambar }}"
-                                        alt="" />
+                                        alt="Gambar {{ $pk->namaProduk }}" />
                                     {{-- <img class="mx-auto hidden h-full dark:block"
                                         src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front-dark.svg"
                                         alt="" /> --}}
@@ -113,7 +113,7 @@
                                 <div class="mb-4 flex items-center justify-between gap-4">
                                 </div>
 
-                                <a href=""
+                                <a href="/user/detail/{{ $pk->slug }}"
                                     class="text-lg font-semibold leading-tight text-white hover:underline dark:text-white">
                                     {{ $pk->namaProduk }}</a>
 

@@ -59,7 +59,7 @@
                                     <div class="relative w-full mb-3">
                                         <label class="block uppercase text-white text-xs font-bold mb-2"
                                             for="grid-password">Username</label><input type="text" name="name"
-                                            class="border-0 px-3 py-3 placeholder-gray-400 text-white bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                                            class="border-0 px-3 py-3 placeholder-gray-400 text-gray-800 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
                                             placeholder="Username" style="transition: all 0.15s ease 0s;"
                                             value="{{ old('name') }}" />
                                     </div>
@@ -67,7 +67,7 @@
                                         <label class="block uppercase text-white text-xs font-bold mb-2"
                                             for="grid-password">Password</label>
                                         <input type="password" id="password" name="password"
-                                            class="border-0 px-3 py-3 placeholder-gray-400 text-white bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                                            class="border-0 px-3 py-3 placeholder-gray-400 text-gray-800 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
                                             placeholder="Password" style="transition: all 0.15s ease 0s;" /><button
                                             type="button" id="togglePassword" class="focus:outline-none -ml-9">
                                             <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240227164304/visible.png"
@@ -79,7 +79,7 @@
                                                 id="customCheckLogin" type="checkbox"
                                                 class="form-checkbox border-0 rounded text-gray-800 ml-1 w-5 h-5"
                                                 style="transition: all 0.15s ease 0s;" /><span
-                                                class="ml-2 text-sm font-semibold text-gray-700">Remember me</span>
+                                                class="ml-2 text-sm font-semibold text-white">Remember me</span>
                                         </label>
                                     </div>
                                     <div class="text-center mt-6">

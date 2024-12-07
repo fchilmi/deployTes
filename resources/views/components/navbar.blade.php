@@ -1,11 +1,11 @@
 <nav class="fixed w-full z-10 top-0 start-0 border-b border-b-white" x-data="{ isOpen: false }"
-    style="background-image: url(/img/web-Header-baru.png); background-size: cover; background-repeat: no-repeat;">
+    style="background-image: url(/img/web-Header-baru.png); background-size: cover; background-repeat: no-repeat; ">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
             <div class="flex items-center">
                 <div class="flex-shrink-0">
                     {{-- @dd($profile) --}}
-                    <img class="h-12 w-12" src="/img/{{ $profile[0]->logoPerusahaan }}" alt="Your Company">
+                    <img class="h-12 w-12" src="{{ url('/img/' . $profile[0]->logoPerusahaan) }}" alt="Your Company">
                 </div>
                 <div class="hidden sm:ml-6 sm:block">
                     <div class="ml-10 flex items-baseline space-x-4">
@@ -119,13 +119,13 @@
                                 role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button"
                                 tabindex="-1">
                                 <!-- Active: "bg-gray-100", Not Active: "" -->
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem"
+                                <a href="#" class="block px-4 py-2 text-sm text-white" role="menuitem"
                                     tabindex="-1" id="user-menu-item-0">Your Profile</a>
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem"
+                                <a href="#" class="block px-4 py-2 text-sm text-white" role="menuitem"
                                     tabindex="-1" id="user-menu-item-1">Settings</a>
                                 <form action="{{ route('logout') }}" method="POST">
                                     @csrf
-                                    <button type="submit" class="block px-4 py-2 text-sm text-gray-700" role="menuitem"
+                                    <button type="submit" class="block px-4 py-2 text-sm text-white" role="menuitem"
                                         tabindex="-1" id="user-menu-item-2">Sign out</button>
                                 </form>
                             </div>
@@ -133,6 +133,8 @@
                     @endauth
                 </div>
             </div>
+
+
             <div class="-mr-2 flex md:hidden">
                 <!-- Mobile menu button -->
                 <button type="button" @click="isOpen = !isOpen"
@@ -158,12 +160,18 @@
 
     <!-- Mobile menu, show/hide based on menu state. -->
     <div x-show="isOpen" class="md:hidden" id="mobile-menu">
-        <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
+        <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3 bg-gray-700 opacity-70">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <x-nav-link href='/user/dashboard' :active="request()->is('user/dashboard')">Produk</x-nav-link>
-            <x-nav-link href='/user/profilperusahaan' :active="request()->is('user/profilperusahaan')">Profil Perusahaan</x-nav-link>
-            <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar2"
-                class="flex items-center justify-between rounded-md  px-3 py-2 text-sm font-medium hover:underline text-white hover:bg-gray-700 hover:text-opacity-50 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 md:w-auto dark:text-white md:dark:hover:text-white dark:focus:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Dropdown
+            <x-nav-link href='/user/dashboard' :active="request()->is('user/dashboard')">
+                <p class="text-white">Produk</p>
+            </x-nav-link>
+            <x-nav-link href='/user/profilperusahaan' :active="request()->is('user/profilperusahaan')">
+                <p class="text-white">Profil
+                    Perusahaan</p>
+            </x-nav-link>
+            <button id="dropdownNavbarLink"
+                data-dropdown-toggle="dropdownNavbar2"data-dropdown-placement="right-start"
+                class="flex items-center justify-between rounded-md px-3 py-2 text-sm font-medium hover:underline text-white hover:bg-gray-700 hover:text-opacity-80 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 md:w-auto dark:text-white md:dark:hover:text-white dark:focus:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Dropdown
                 <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                     viewBox="0 0 10 6">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -233,29 +241,29 @@
                 </ul>
             </div>
         </div>
-        <div class="border-t border-gray-700 pb-3 pt-4">
-            <div class="flex items-center px-5">
-                <div class="flex-shrink-0">
-                    <svg class="w-[32px] h-[32px] text-gray-100 dark:text-white" aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-                        viewBox="0 0 24 24">
-                        <path fill-rule="evenodd"
-                            d="M12 20a7.966 7.966 0 0 1-5.002-1.756l.002.001v-.683c0-1.794 1.492-3.25 3.333-3.25h3.334c1.84 0 3.333 1.456 3.333 3.25v.683A7.966 7.966 0 0 1 12 20ZM2 12C2 6.477 6.477 2 12 2s10 4.477 10 10c0 5.5-4.44 9.963-9.932 10h-.138C6.438 21.962 2 17.5 2 12Zm10-5c-1.84 0-3.333 1.455-3.333 3.25S10.159 13.5 12 13.5c1.84 0 3.333-1.455 3.333-3.25S13.841 7 12 7Z"
-                            clip-rule="evenodd" />
-                    </svg>
-
-                </div>
-                @auth
-                    <div class="ml-3">
+        <div class="border-t border-gray-700  bg-gray-700 opacity-70 pb-3">
+            @auth
+                <div class="flex items-center px-5">
+                    <div class="">
                         <div class="text-base font-medium leading-none text-white">{{ Auth::user()->name }}</div>
                     </div>
-                @endauth
-            </div>
-            <div class="mt-3 space-y-1 px-2">
-                <a href="/logout2"
-                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white">Sign
-                    out</a>
-            </div>
+                    <div class="flex-shrink-0 ml-2">
+                        <svg class="w-[32px] h-[32px] text-white dark:text-white" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                            viewBox="0 0 24 24">
+                            <path fill-rule="evenodd"
+                                d="M12 20a7.966 7.966 0 0 1-5.002-1.756l.002.001v-.683c0-1.794 1.492-3.25 3.333-3.25h3.334c1.84 0 3.333 1.456 3.333 3.25v.683A7.966 7.966 0 0 1 12 20ZM2 12C2 6.477 6.477 2 12 2s10 4.477 10 10c0 5.5-4.44 9.963-9.932 10h-.138C6.438 21.962 2 17.5 2 12Zm10-5c-1.84 0-3.333 1.455-3.333 3.25S10.159 13.5 12 13.5c1.84 0 3.333-1.455 3.333-3.25S13.841 7 12 7Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </div>
+
+                </div>
+                <div class="px-2">
+                    <a href="/logout2"
+                        class="block rounded-md px-3 py-2 text-base font-medium text-white hover:bg-gray-700 hover:text-white">Sign
+                        out</a>
+                </div>
+            @endauth
         </div>
     </div>
 
