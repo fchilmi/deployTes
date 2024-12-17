@@ -3,7 +3,7 @@
     <x-slot:titles>Data Users</x-slot:titles>
     <div class="min-h-full">
         <main>
-            <section class="py-8 bg-white md:py-16 dark:bg-gray-900 antialiased">
+            <section class="py-8 px-8 md:py-16 dark:bg-gray-900 antialiased">
                 <button id="AddUserButton" data-modal-target="AddUserModal" data-modal-toggle="AddUserModal"
                     class="item-right text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
                     ADD</button>
@@ -75,7 +75,7 @@
                 </div>
 
                 <table class="my-4 w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <thead class="text-xs text-gray-100 uppercase bg-gray-700">
                         <tr>
                             <th scope="col" class="px-4 py-3">No</th>
                             <th scope="col" class="px-4 py-3">Nama</th>
@@ -87,10 +87,10 @@
                         @foreach ($users as $data)
                             <tr class="border-b dark:border-gray-700">
                                 <th scope="row"
-                                    class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    class="px-4 py-3 font-medium text-gray-100 whitespace-nowrap dark:text-white">
                                     {{ $loop->iteration }}</th>
-                                <td class="px-4 py-3">{{ $data->name }}</td>
-                                <td class="px-4 py-3">{{ $data->email }}</td>
+                                <td class="px-4 py-3 text-gray-100">{{ $data->name }}</td>
+                                <td class="px-4 py-3 text-gray-100">{{ $data->email }}</td>
                                 <td class="px-4 py-3">
                                     <form class="" action="{{ route('users.destroy', $data->id) }}"
                                         method="POST">

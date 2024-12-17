@@ -3,9 +3,8 @@
         <article class="my-6 md:col-start-2 sm:col-start-1 justify-items-center text-center">
 
             <img src="{{ url('/img/profil1.png') }}" alt="" width="80%">
-            <p class="mb-6 font-bold text-black">Menyediakan aneka produk sparepart cooling
-                tower
-                <br>Pergudangan Angtropolis Jl.Margmomulyo no.46 Blok F 20.
+            <p class="mb-6 font-bold text-black">
+                Pergudangan Angtropolis <br> Jl.Margmomulyo no.46 Blok F 20.
                 <br>Telp : 031-3592-5002 | Email : ptgreatkingsurabaya@gmail.com
             </p>
 
