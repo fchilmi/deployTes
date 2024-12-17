@@ -26,8 +26,8 @@
         "LOG_CHANNEL": "stderr",
         "SESSION_DRIVER": "cookie",
         "DB_CONNECTION": "mysql",
-        "DB_HOST": "compro-agungslamet11-0c26.g.aivencloud.com",
-        "DB_PORT": "21021",
+        "DB_HOST": "mysql-1843e1bd-greatking.j.aivencloud.com",
+        "DB_PORT": "12843",
         "DB_DATABASE": "defaultdb",
         "DB_USERNAME": "avnadmin"
     }
