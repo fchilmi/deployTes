@@ -13,7 +13,7 @@
     "outputDirectory": "public",
     "env": {
         "APP_ENV": "production",
-        "APP_DEBUG": "false",
+        "APP_DEBUG": "true",
         "APP_URL": "https://greatkingsby.com",
         "APP_KEY": "base64:TBUVNOtjLFECC/aqN50nBG1PO3ek9q36gd9Q//K8DWU=",
         "APP_CONFIG_CACHE": "/tmp/config.php",
