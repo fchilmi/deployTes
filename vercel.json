@@ -6,6 +6,8 @@
     },
     "routes": [
         { "src": "/build/(.*)", "dest": "/public/build/" },
+        { "src": "/img/(.*)", "dest": "/public/img/" },
+        { "src": "/uploads/(.*)", "dest": "/public/uploads/" },
         { "src": "/(.*)", "dest": "/api/index.php" }
     ],
     "public": true,
