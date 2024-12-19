@@ -40,7 +40,7 @@ module.exports = {
   },
   plugins: [
     require("flowbite/plugin"),
-    require("flowbite-typography/plugin"),
+    require("flowbite-typography"),
   ],
   safelist: [
     "bg-red-100", "bg-green-100", "bg-blue-100", "bg-orange-100", "bg-yellow-100"
