@@ -28,7 +28,7 @@
                             <span
                                 class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-600/20 dark:bg-gray-800/30 group-hover:bg-gray-600/20 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
                                 <svg class="w-4 h-4 text-black dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                    xmlns="https://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                         stroke-width="2" d="M5 1 1 5l4 4" />
                                 </svg>
@@ -41,7 +41,7 @@
                             <span
                                 class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-600/30 dark:bg-gray-800/30 group-hover:bg-gray-600/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
                                 <svg class="w-4 h-4 text-black dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                    xmlns="https://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                         stroke-width="2" d="m1 9 4-4-4-4" />
                                 </svg>
@@ -69,7 +69,7 @@
                                         class="text-white mt-4 sm:mt-0 bg-green-600 hover:bg-green-600 focus:ring-4 focus:ring-blue-400 font-medium rounded-lg text-lg sm:text-xl flex items-center"
                                         role="button">
                                         <svg class="mr-2 ml-2 w-[40px] h-[40px] text-gray-800 dark:text-white"
-                                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                                            aria-hidden="true" xmlns="https://www.w3.org/2000/svg" width="24"
                                             height="24" fill="none" viewBox="0 0 24 24">
                                             <path fill="currentColor" fill-rule="evenodd"
                                                 d="M12 4a8 8 0 0 0-6.895 12.06l.569.718-.697 2.359 2.32-.648.379.243A8 8 0 1 0 12 4ZM2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10a9.96 9.96 0 0 1-5.016-1.347l-4.948 1.382 1.426-4.829-.006-.007-.033-.055A9.958 9.958 0 0 1 2 12Z"
