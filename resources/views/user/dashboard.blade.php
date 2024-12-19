@@ -27,13 +27,13 @@
                                     </svg>
                                 </div>
                                 <input
-                                    class="block p-3 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:rounded-none sm:rounded-l-lg focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                    class="block p-3 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:rounded-none sm:rounded-l-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     placeholder="Search for article" type="search" id="search" name="search"
                                     autocomplete="off">
                             </div>
                             <div>
                                 <button type="submit"
-                                    class="py-3 px-5 w-full text-sm font-medium text-center text-white rounded-lg border cursor-pointer bg-primary-900 border-primary-600 sm:rounded-none sm:rounded-r-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Search</button>
+                                    class="py-3 px-5 w-full text-sm font-medium text-center text-white rounded-lg border cursor-pointer bg-blue-900 border-blue-600 sm:rounded-none sm:rounded-r-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
                             </div>
                         </div>
                     </form>
@@ -41,7 +41,7 @@
             </div>
 
 
-            {{-- <div id="animation-carousel" class="relative w-full" data-carousel="static">
+            <div id="animation-carousel" class="relative w-full" data-carousel="static">
                 <!-- Carousel wrapper -->
                 <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
                     <!-- Item 1 -->
@@ -90,7 +90,7 @@
                         <span class="sr-only">Next</span>
                     </span>
                 </button>
-            </div> --}}
+            </div>
 
             <div class="px-4 mx-auto max-w-screen-xl lg:px-0">
                 <div class="grid gap-8 md:grid-cols-3 lg:grid-cols-3">
@@ -115,7 +115,7 @@
                                     <p class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white">
                                     </p>
                                     <a href="/user/detail/{{ $produk->slug }}"
-                                        class="inline-flex items-center rounded-lg bg-primary-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-600 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                                        class="inline-flex items-center rounded-lg bg-blue-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring-4  focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                         Detail
                                     </a>
                                 </div>

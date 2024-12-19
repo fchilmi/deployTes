@@ -66,7 +66,7 @@
 
                                 @foreach ($kontaks as $nomer)
                                     <a href="https://api.whatsapp.com/send?phone={{ $nomer->nomor }}&text=Hello%2C%20Kami%20Dapat%20No%20Anda%20Dari%20{{ $produk->namaProduk }}"
-                                        class="text-white mt-4 sm:mt-0 bg-green-600 hover:bg-green-600 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-lg sm:text-xl flex items-center"
+                                        class="text-white mt-4 sm:mt-0 bg-green-600 hover:bg-green-600 focus:ring-4 focus:ring-blue-400 font-medium rounded-lg text-lg sm:text-xl flex items-center"
                                         role="button">
                                         <svg class="mr-2 ml-2 w-[40px] h-[40px] text-gray-800 dark:text-white"
                                             aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
@@ -121,7 +121,7 @@
                                     <p class="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white">
                                     </p>
                                     <a href="/user/detail/{{ $pk->slug }}"
-                                        class="inline-flex items-center rounded-lg bg-primary-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-600 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                                        class="inline-flex items-center rounded-lg bg-blue-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring-4  focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                         Detail
                                     </a>
                                 </div>
